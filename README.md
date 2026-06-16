@@ -11,7 +11,7 @@ The framework replaces the big-bang singularity with a General-Relativity-consis
 For quick access to the paper's contents, structural layouts, or code baselines, navigate to the following core files:
 
 *   **`main.pdf`**: The final, production-compiled document structured in the official, two-column Physical Review D (PRD) journal format.
-*   **`main.tx`**: Contains the raw LaTeX source text, document preambles, and bibliography tags.
+*   **`main.tex`**: Contains the raw LaTeX source text, document preambles, and bibliography tags.
     *   `main.tex`: The unified, consolidated TeX source file ready for local compilation or direct upload to the arXiv production servers.
 *   **`Code/`**: The complete Python implementation of the numerical models supporting the theoretical framework.
     *   `eigenmodes.py`: Builds the relational quantum entanglement kernel and maps the low-lying Laplacian spectrum.
