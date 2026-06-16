@@ -11,11 +11,8 @@ The framework replaces the big-bang singularity with a General-Relativity-consis
 For quick access to the paper's contents, structural layouts, or code baselines, navigate to the following core files:
 
 *   **`main.pdf`**: The final, production-compiled document structured in the official, two-column Physical Review D (PRD) journal format.
-*   **`Manuscript/`**: Contains the raw LaTeX source text, document preambles, and bibliography tags.
+*   **`main.tx`**: Contains the raw LaTeX source text, document preambles, and bibliography tags.
     *   `main.tex`: The unified, consolidated TeX source file ready for local compilation or direct upload to the arXiv production servers.
-*   **`Figures/`**: High-resolution (300 DPI) visual assets dynamically embedded into the manuscript layout.
-    *   `eigenmodes.png`: Graphical output showcasing spontaneous multi-dimensional coordinate emergence.
-    *   `entropy_attractor.png`: Double-panel graphic proving the thermodynamic resolution to Tolman's paradox and the exponential decay of cosmic inhomogeneities.
 *   **`Code/`**: The complete Python implementation of the numerical models supporting the theoretical framework.
     *   `eigenmodes.py`: Builds the relational quantum entanglement kernel and maps the low-lying Laplacian spectrum.
     *   `entropy_attractor.py`: Tracks the discrete renormalization-group-like flow ($\mathcal{R}$) of effective background couplings across 30 successive bounces.
