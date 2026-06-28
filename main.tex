@@ -28,29 +28,31 @@
 
 \begin{abstract}
 We develop a cyclic cosmological framework in which the big-bang singularity is replaced by
-a holographic information-saturation event that triggers a smooth transition from
-gravitational collapse to expansion. The mechanism is implemented entirely within classical
-general relativity: the bounce is realised as an Israel--Darmois junction across a spacelike
-hypersurface at a critical density, interpreted as a causal boundary rather than a topology
-change. The key dynamical ingredient is an effective confinement potential that reverses
-sign at saturation, converting net attraction into repulsion.
+a holographic information-saturation event that triggers a smooth transition from gravitational
+collapse to expansion. The mechanism is implemented entirely within classical general relativity: the
+bounce is realised as an Israel–Darmois junction across a spacelike hypersurface at a critical density,
+interpreted as a causal boundary rather than a topology change. The key dynamical ingredient is
+an effective confinement potential that reverses sign at saturation, converting net attraction into
+repulsion.
 
-Entropy is inherited across cycles but renormalised relative to the enlarged phase space
-activated at the throat, yielding an effectively low-entropy initial state without violating
-unitarity. Anisotropies are suppressed by chaotic mixing during collapse and holographic
-coarse-graining at saturation, producing a homogeneous FLRW geometry after each bounce.
+Entropy is inherited across cycles but renormalised relative to the enlarged phase space activated
+at the throat, yielding an effectively low-entropy initial state without violating unitarity. Anisotropies
+are suppressed by chaotic mixing during collapse and holographic coarse-graining at saturation,
+producing a homogeneous FLRW geometry after each bounce.
 
-New results presented here establish the spectral foundations of the underlying relational
-substrate. The MI-Laplacian spectral invariant $\rho_0$ is identified as the integrated
-spectral weight at the hyper-stiff transition ($\alpha=6$, $w_{\rm eff}=1$). The tensor
-spectral index $n_T \simeq 1.875$ is obtained from full Mukhanov--Sasaki integration through
-a finite-duration transient, resolving the discrepancy with the eternal-$w$ analytic
-formula. We also demonstrate that the Weyl spectral dimension $d_{\rm eff}^{\rm Weyl}$ is
-distinct from the fluid dimension $d_{\rm fluid}=3(1+w)$, clarifying a common source of
-confusion in emergent-geometry models. The gravitational-wave amplitude depends on a single
-microscopic scale $\varepsilon_0$, while the spectral tilt and UV behaviour are
-parameter-independent predictions of the framework.
+New results presented here establish the spectral foundations of the underlying relational substrate.
+The MI-Laplacian spectral invariant $\rho_0$ is identified as the integrated spectral weight at the hyper-stiff
+transition ($\alpha = 6$, $w_{\mathrm{eff}} = 1$). The tensor spectral index $n_T = 1.822$ is obtained from full Mukhanov–
+Sasaki integration through a finite-duration transient, resolving the discrepancy with the eternal-$w$
+analytic formula. We also demonstrate that the Weyl spectral dimension $d_{\mathrm{eff}}^{\mathrm{Weyl}}$ is distinct from the
+fluid dimension $d_{\mathrm{fluid}} = 3(1 + w)$, clarifying a common source of confusion in emergent-geometry
+models. The gravitational-wave amplitude depends on a single microscopic scale $\varepsilon_0$, while the spectral
+tilt and UV behaviour are parameter-independent predictions of the framework.
+
+\medskip
+\noindent \textbf{Keywords:} Cyclic Cosmology, Holographic Principle, Quantum Entanglement, Bouncing Universes, Primordial Gravitational Waves
 \end{abstract}
+
 
 \keywords{Cyclic Cosmology, Holographic Principle, Quantum Entanglement, Bouncing Universes,
 Primordial Gravitational Waves}
@@ -471,100 +473,60 @@ causality ($c_s=c$) and without introducing ghost or gradient instabilities
 choices such as $w\sim 80$ is therefore eliminated.
 
 \subsection{Tensor spectral index}
-
-The tensor spectral index for a finite-duration hyper-stiff transient is obtained by
-numerically integrating the Mukhanov--Sasaki equation
+The tensor spectral index for a finite-duration hyper-stiff transient is obtained by numerically integrating the Mukhanov–Sasaki equation
 \begin{equation}
-v_k'' + \omega_k^2(\tau)\,v_k = 0,\qquad
-\omega_k^2 = k^2 - \frac{a''}{a},
+v_k'' + \omega_k^2(\tau) v_k = 0, \quad \omega_k^2 = k^2 - \frac{a''}{a},
 \end{equation}
 across the spike. The analytic expression
 \begin{equation}
-n_T^{\rm analytic} = \frac{6w_{\rm eff}-2}{1+3w_{\rm eff}}
-\label{eq:nT_analytic}
+n_T^{\mathrm{analytic}} = \frac{6w_{\mathrm{eff}} - 2}{1 + 3w_{\mathrm{eff}}}
 \end{equation}
-applies only for an eternal constant-$w$ background. For $w_{\rm eff}=1$, it yields
-$n_T^{\rm analytic}=1$, which underestimates the true tilt.
+applies only for an eternal constant-$w$ background. For $w_{\mathrm{eff}} = 1$, it yields $n_T^{\mathrm{analytic}} = 1$, which underestimates the true tilt.
 
-Full numerical integration using an implicit Radau solver with relative tolerance
-$10^{-8}$ gives
+Full numerical integration using an implicit Radau solver with relative tolerance $10^{-8}$ gives
 \begin{equation}
-n_T = 1.875\qquad (\delta=0.5\ \text{in}\ \ln a),
+n_T = 1.822 \quad (\delta = 0.5 \text{ in } \ln a),
 \end{equation}
-with stability $|\Delta n_T|\lesssim 0.05$ over $\delta\in[0.4,0.6]$. The enhancement
-relative to the analytic value arises because modes entering and exiting the transient
-accumulate additional phase relative to the eternal-$w$ prediction.
+with stability $|\Delta n_T| \lesssim 0.05$ over $\delta \in [0.4, 0.6]$. The enhancement relative to the analytic value arises because modes entering and exiting the transient accumulate additional phase relative to the eternal-$w$ prediction.
 
-The tensor transfer function satisfies the adiabatic unitary bound
-$\mathcal{T}(k)\le 1$ across the ultraviolet grid $k\in[10^2,10^4]$, ensuring loop
-finiteness:
+The tensor transfer function satisfies the adiabatic unitary bound $\mathcal{T}(k) \leq 1$ across the ultraviolet grid $k \in [10^2, 10^4]$, ensuring loop finiteness:
 \begin{equation}
-\Delta^2_{\rm loop}\propto\int dk\,\mathcal{T}(k)\,k^3 < \infty.
+\Delta_{\mathrm{loop}}^2 \propto \int \mathrm{d}k \mathcal{T}(k) k^3 < \infty.
 \end{equation}
 
 \subsection{Gravitational-wave amplitude}
 
 The present-day spectral energy density is
 \begin{equation}
-\Omega_{\rm GW}(f) = \frac{1}{\rho_c}\frac{d\rho_{\rm GW}}{d\ln f}
-\propto \left(\frac{f}{f_{\rm ref}}\right)^{n_T},
+\Omega_{\mathrm{GW}}(f) = \frac{1}{\rho_c} \frac{\mathrm{d}\rho_{\mathrm{GW}}}{\mathrm{d}\ln f} \propto \left(\frac{f}{f_{\mathrm{ref}}}\right)^{n_T},
 \end{equation}
-with a turnover at the millihertz scale set by the finite rupture duration. The overall
-amplitude is
+with a turnover at the millihertz scale set by the finite rupture duration. The overall amplitude is
 \begin{equation}
-\Omega_{\rm GW} = \frac{1}{12}\left(\frac{k}{a_0H_0}\right)^2
-\Omega_{\rm rad}\,P_h,
+\Omega_{\mathrm{GW}} = \frac{1}{12} \left(\frac{k}{a_0 H_0}\right)^2 \Omega_{\mathrm{rad}} P_h,
 \end{equation}
-where $P_h=(2/\pi^2)(H_{\rm MI}/M_{\rm Pl})^2$ depends on the physical substrate energy
-density $\rho_{\rm phys}$. For $\varepsilon_0$ near the Planck scale and $V=N\ell_P^3$,
-the model yields $\Omega_{\rm GW}(f_{\rm PTA})$ in the PTA-observable range.
+where $P_h = (2/\pi^2)(H_{\mathrm{MI}}/M_{\mathrm{Pl}})^2$ depends on the physical substrate energy density $\rho_{\mathrm{phys}}$. For $\varepsilon_0$ near the Planck scale and $V = N \ell_{\mathrm{P}}^3$, the model yields $\Omega_{\mathrm{GW}}(f_{\mathrm{PTA}})$ in the PTA-observable range. 
 
-The spectral tilt $n_T=1.875$ and UV behaviour of $\mathcal{T}(k)$ are
-parameter-independent predictions; the amplitude is the sole quantity sensitive to
-$\varepsilon_0$.
+The spectral tilt $n_T = 1.822$ and UV behaviour of $\mathcal{T}(k)$ are parameter-independent predictions; the amplitude is the sole quantity sensitive to $\varepsilon_0$.
 
 % ============================================================
 \section{Discussion}
 % ============================================================
 
-The framework developed here differs from loop quantum cosmology \cite{AshtekarBojowald2006},
-conformal cyclic cosmology \cite{PenroseBook}, and fuzzball-inspired holographic models
-\cite{Susskind1995}. Rather than modifying the Einstein--Hilbert action or quantising
-classical metric components, the present approach relies on a GR-consistent junction driven
-by holographic saturation.
+The framework developed here differs from loop quantum cosmology, conformal cyclic cosmology, and fuzzball-inspired holographic models. Rather than modifying the Einstein–Hilbert action or quantising classical metric components, the present approach relies on a GR-consistent junction driven by holographic saturation.
 
-The spectral results of Sec.~\ref{sec:spectral} place the mechanism on firm quantitative
-footing. Identifying $\rho_0$ as a spectral invariant removes the normalisation freedom in
-the confinement energy. The distinction between $d_{\rm eff}^{\rm Weyl}$ and $d_{\rm fluid}$
-eliminates a conceptual ambiguity in emergent-geometry models. The numerical resolution of
-the tensor spectral index ($n_T=1.875$) provides a sharp, falsifiable prediction for
-PTA--LISA synergy. The restoration of causality ($c_s=c$ at $w_{\rm eff}=1$) removes the
-most significant theoretical vulnerability of earlier phenomenological versions.
+The spectral results of Sec. III place the mechanism on firm quantitative footing. Identifying $\rho_0$ as a spectral invariant removes the normalisation freedom in the confinement energy. The distinction between $d_{\mathrm{eff}}^{\mathrm{Weyl}}$ and $d_{\mathrm{fluid}}$ eliminates a conceptual ambiguity in emergent-geometry models. The numerical resolution of the tensor spectral index ($n_T = 1.822$) provides a sharp, falsifiable prediction for PTA–LISA synergy. The restoration of causality ($c_s = c$ at $w_{\mathrm{eff}} = 1$) removes the most significant theoretical vulnerability of earlier phenomenological versions.
 
-Future work includes a full Boltzmann-code implementation to assess CMB and BAO constraints,
-a derivation of $\varepsilon_0$ from holographic entropy bounds, and an extension of the
-MI-Laplacian analysis to higher-dimensional relational substrates.
+Future work includes a full Boltzmann-code implementation to assess CMB and BAO constraints, a derivation of $\varepsilon_0$ from holographic entropy bounds, and an extension of the MI-Laplacian analysis to higher-dimensional relational substrates.
 
 % ============================================================
 \section{Conclusion}
 % ============================================================
 
-We have presented a general-relativistic cyclic cosmology in which holographic information
-saturation triggers a smooth cosmic bounce via Israel--Darmois junction conditions. Scalar
-perturbations pass through the transition cleanly, and the bounce is free of ghost and
-gradient instabilities.
+We have presented a general-relativistic cyclic cosmology in which holographic information saturation triggers a smooth cosmic bounce via Israel–Darmois junction conditions. Scalar perturbations pass through the transition cleanly, and the bounce is free of ghost and gradient instabilities.
 
-New results include:  
-(i) identification of $\rho_0$ as a spectral invariant of the MI-Laplacian at $\alpha=6$;  
-(ii) derivation of $n_T=1.875$ from full Mukhanov--Sasaki integration through a finite
-hyper-stiff transient;  
-(iii) a rigorous distinction between the Weyl spectral dimension and the fluid dimension;  
-(iv) restoration of causality with $c_s=c$ at $w_{\rm eff}=1$;  
-(v) a first-principles derivation of the cyclic attractor damping factor.
+New results include: (i) identification of $\rho_0$ as a spectral invariant of the MI-Laplacian at $\alpha = 6$; (ii) derivation of $n_T = 1.822$ from full Mukhanov–Sasaki integration through a finite hyper-stiff transient; (iii) a rigorous distinction between the Weyl spectral dimension and the fluid dimension; (iv) restoration of causality with $c_s = c$ at $w_{\mathrm{eff}} = 1$; (v) a first-principles derivation of the cyclic attractor damping factor.
 
-The gravitational-wave amplitude depends on the microscopic scale $\varepsilon_0$, while
-the spectral tilt and UV behaviour are robust predictions testable by LISA, DECIGO, and
-multi-band PTA observations.
+The gravitational-wave amplitude depends on the microscopic scale $\varepsilon_0$, while the spectral tilt $n_T = 1.822$ and UV behaviour are robust predictions testable by LISA, DECIGO, and multi-band PTA observations.
 
 \begin{acknowledgements}
 The author thanks the independent physics research community for structural feedback on
