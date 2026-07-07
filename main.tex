@@ -1,25 +1,16 @@
 \documentclass[reprint,superscriptaddress,amsmath,amssymb,aps,prd,showkeys,nofootinbib]{revtex4-2}
 
-% Modernised and cleaned preamble
-\usepackage[T1]{fontenc}
 \usepackage{graphicx}
 \usepackage{dcolumn}
 \usepackage{bm}
 \usepackage{hyperref}
 \usepackage{microtype}
 \usepackage{booktabs}
-\usepackage{mathtools}
-
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    citecolor=blue,
-    urlcolor=blue
-}
 
 \begin{document}
 
-\title{General-Relativistic Cyclic Cosmology from Holographic Saturation}
+\title{General-Relativistic Cyclic Cosmology from Holographic Saturation:\\
+An Effective Framework with Computed Substrate and Tensor Spectra}
 
 \author{Paul Jarvis}
 \email{mrpaulwjarvis@gmail.com}
@@ -27,41 +18,43 @@
 \date{\today}
 
 \begin{abstract}
-We develop a cyclic cosmological framework in which the big-bang singularity is replaced by
-a holographic information-saturation event that triggers a smooth transition from gravitational
-collapse to expansion. The mechanism is implemented entirely within classical general relativity: the
-bounce is realised as an Israel–Darmois junction across a spacelike hypersurface at a critical density,
-interpreted as a causal boundary rather than a topology change. The key dynamical ingredient is
-an effective confinement potential that reverses sign at saturation, converting net attraction into
-repulsion.
-
-Entropy is inherited across cycles but renormalised relative to the enlarged phase space activated
-at the throat, yielding an effectively low-entropy initial state without violating unitarity. Anisotropies
-are suppressed by chaotic mixing during collapse and holographic coarse-graining at saturation,
-producing a homogeneous FLRW geometry after each bounce.
-
-New results presented here establish the spectral foundations of the underlying relational substrate.
-The MI-Laplacian spectral invariant $\rho_0$ is identified as the integrated spectral weight at the hyper-stiff
-transition ($\alpha = 6$, $w_{\mathrm{eff}} = 1$). The tensor spectral index $n_T = 1.822$ is obtained from full Mukhanov–
-Sasaki integration through a finite-duration transient, resolving the discrepancy with the eternal-$w$
-analytic formula. We also demonstrate that the Weyl spectral dimension $d_{\mathrm{eff}}^{\mathrm{Weyl}}$ is distinct from the
-fluid dimension $d_{\mathrm{fluid}} = 3(1 + w)$, clarifying a common source of confusion in emergent-geometry
-models. The gravitational-wave amplitude depends on a single microscopic scale $\varepsilon_0$, while the spectral
-tilt and UV behaviour are parameter-independent predictions of the framework.
-
-\medskip
-\noindent \textbf{Keywords:} Cyclic Cosmology, Holographic Principle, Quantum Entanglement, Bouncing Universes, Primordial Gravitational Waves
+We propose a cyclic cosmological framework in which the big-bang singularity is replaced by
+an information-saturation event that triggers a transition from gravitational collapse to
+expansion. At the macroscopic level the transition is modelled within general relativity as
+an Israel--Darmois junction across a spacelike hypersurface at a critical density, driven by
+an effective confinement potential whose sign reversal at holographic saturation is
+introduced as a phenomenological ansatz motivated by holographic entropy bounds. Entropy
+inheritance and cycle-to-cycle homogenisation are likewise modelled phenomenologically: an
+exponential damping ansatz generically drives the renormalised inhomogeneity ratio to zero
+across cycles, while a first-principles derivation of the damping rate from the substrate
+remains open. On the substrate side, we show that the integrated spectral weight $\rho_0$ of
+the mutual-information graph Laplacian at the hyper-stiff point ($\alpha=6$) converges to a
+lattice-independent continuum value ($\rho_0 \approx 4.68$, varying by $\lesssim 4\%$ across
+$L=4$--$16$ toroidal lattices), supporting its interpretation as a continuum property of the
+relational graph rather than a lattice artefact, and we distinguish the Weyl spectral
+dimension from the fluid equation-of-state dimension. For the tensor sector we integrate the
+Mukhanov--Sasaki equation through the transient confinement spike
+$\rho_{\rm conf}(a)=\rho_0\,\chi(1-\chi)^8$ on a radiation background, with adiabatic vacuum
+initial conditions and Bogoliubov-coefficient extraction verified by Wronskian conservation.
+The computed ultraviolet tail is a clean power law $|\beta_k|^2 \propto k^{-4}$ --- a red
+tensor tilt under the standard convention --- with the tilt insensitive to the spike
+duration $\delta$ and the amplitude varying by four orders of magnitude over
+$\delta\in[0.4,0.6]$. We further find that the $\tanh$ envelope of the confinement profile
+drives the effective equation of state to $w\approx2.1>1$, in tension with the causal bound
+$c_s\leq c$ under the adiabatic identification $c_s^2=w$; maintaining causality therefore
+requires either a redesigned envelope bounded by $a^{-6}$ scaling or a non-adiabatic
+microphysical realisation of the confinement component. These results supersede earlier
+estimates of a blue tensor tilt.
 \end{abstract}
-
 
 \keywords{Cyclic Cosmology, Holographic Principle, Quantum Entanglement, Bouncing Universes,
 Primordial Gravitational Waves}
 
 \maketitle
 
-% ============================================================
+% ─────────────────────────────────────────────────────────────────────────────
 \section{Introduction}
-% ============================================================
+% ─────────────────────────────────────────────────────────────────────────────
 
 Classical general relativity (GR) predicts geodesic incompleteness under broad conditions,
 as established by the Penrose--Hawking singularity theorems \cite{Penrose1965,
@@ -72,154 +65,186 @@ quantum cosmology (LQC) \cite{AshtekarBojowald2006}, conformal cyclic cosmology 
 fuzzball-inspired constructions \cite{tHooft1993, Susskind1995}.
 
 We develop a cyclic cosmology in which the singularity is replaced by an
-information-saturation event. As a collapsing region approaches its saturation radius, its
+information-saturation event. The transition from collapse to expansion is implemented as a
+GR-consistent junction across a spacelike hypersurface at a critical density. The underlying
+intuition is holographic: as a collapsing region approaches its saturation radius, its
 information content approaches the Bekenstein--Hawking bound, and the effective confinement
-potential undergoes a sign reversal. The transition from collapse to expansion is
-implemented as a GR-consistent junction across a spacelike hypersurface at a critical
-density, interpreted as a causal boundary rather than a topology change.
+potential undergoes a sign reversal.
 
-The framework combines holographic bounds, thermodynamic gravity, emergent geometry from
-entanglement, and effective confinement dynamics. It remains fully GR-compatible at the
-macroscopic level while connecting to a pre-geometric relational substrate supported by
-numerical evidence. The present work establishes the spectral foundations of this substrate,
-derives the tensor spectral index from first principles, and clarifies the distinction
-between geometric and fluid notions of dimension.
+Two methodological commitments distinguish the present version of this work from earlier
+drafts. First, we separate explicitly the components of
+the framework that are \emph{derived} (spectral properties of the substrate, the computed
+tensor spectrum) from those that are \emph{phenomenological ans\"atze} (the confinement
+potential, the saturation envelope, the cyclic damping law). Second, every quantitative
+claim in this paper is the output of a single, publicly available numerical pipeline
+(Sec.~\ref{sec:code}); no figure or headline number is asserted independently of that
+pipeline. Where the honest computation contradicts earlier estimates --- most notably for
+the tensor spectral tilt --- the computed result supersedes the earlier claim, and we say
+so explicitly.
 
-% ============================================================
+% ─────────────────────────────────────────────────────────────────────────────
 \section{Pre-Geometric Substrate and Emergent Geometry}
-% ============================================================
+% ─────────────────────────────────────────────────────────────────────────────
 
-\subsection{Relational substrate and mutual information metric}
-
-We assume that smooth geometry emerges from the quantum entanglement structure of an
-underlying pre-geometric many-body substrate \cite{VanRaamsdonk2010}. The mutual
-information between two subregions $i$ and $j$,
+\subsection{Substrate Assumptions}
+We assume that smooth geometry emerges natively from the quantum entanglement structure of
+an underlying pre-geometric many-body substrate \cite{VanRaamsdonk2010}. The mutual
+information between two arbitrary sub-regions $i$ and $j$,
 \begin{equation}
 I(i,j) = S(\rho_i) + S(\rho_j) - S(\rho_{ij}),
 \end{equation}
-acts as a relational metric proxy. From the mutual-information matrix we construct a
-symmetric connectivity matrix $A_{ij}$ and the associated combinatorial graph Laplacian
+serves as a relational metric proxy that maps spatial proximity. This mutual information
+matrix dictates a symmetric connectivity matrix $A_{ij}$, from which we construct the
+combinatorial graph Laplacian
 \begin{equation}
 L^{\rm MI}_{ij} = \delta_{ij}\sum_k I_{ik} - I_{ij}.
 \end{equation}
-No microscopic Hamiltonian or prior spatial embedding is assumed; all macroscopic
-parameters are coarse-grained descriptors of the relational structure.
+No specific microscopic Hamiltonian or prior spatial embedding is assumed. All macroscopic
+phenomenological parameters are treated as coarse-grained descriptions whose exact
+microphysical derivations are deferred to future work.
 
-\subsection{Spectral emergence of geometry}
-
-Benchmarks on the ground state of an antiferromagnetic Heisenberg spin chain,
+\subsection{Heisenberg-Chain Benchmarks}
+\label{sec:heisenberg}
+To test this construction against explicit quantum states, we track the low-lying spectrum
+of the graph Laplacian derived from ground states of the antiferromagnetic Heisenberg (XXZ)
+spin chain \cite{CodeRepo},
 \begin{equation}
-H = J\sum_{i=1}^{N-1}\vec{S}_i\cdot\vec{S}_{i+1},\qquad J>0,
+H = J\sum_{i=1}^{N-1}\vec{S}_i\cdot\vec{S}_{i+1},\quad J>0,
 \end{equation}
-for $N=6$--$16$ confirm the emergence of a smooth one-dimensional geometry, with a quadratic
-dispersion relation and finite-size scaling $\lambda_1\propto N^{-2}$.
+for chain lengths $N=6$--$16$, using exact diagonalisation and mutual information computed
+from partial traces of the exact ground state. The full pipeline, including AICc model
+selection, leave-one-out sensitivity, and normalisation robustness checks, is implemented
+in \texttt{code/testing.py}, supplied with this paper \cite{CodeRepo}.
 
-Diagonalisation of a relational entanglement kernel on a discrete $8\times 8$ toroidal
-lattice produces spontaneous coordinate chart generation. As shown in
-Fig.~\ref{fig:eigenmodes}, the first excited tier contains a degenerate pair at
-$\lambda=0.675$, providing orthogonal spatial gradients that assemble into a continuous,
-isotropic 2D manifold.
+The strongest quantitative support for the construction is the correspondence between the
+measured mutual-information decay exponent and the Luttinger-liquid prediction
+$\alpha_{\rm MI}=-2\min(2K,1/2K)$ across the anisotropy range $\Delta\in(-0.9,1]$: the
+measured and predicted exponents correlate at $r\approx0.96$, with near-exact agreement at
+the Heisenberg point ($\Delta=1$: predicted $-2.000$, measured $-1.96$). The low-lying
+spectrum is consistent with a smooth one-dimensional emergent geometry; however, we note
+two honest caveats established by the robustness suite in \texttt{code/testing.py}.
+First, information-criterion (AICc) model selection between linear and quadratic dispersion
+remains ambiguous at accessible system sizes, so we describe the dispersion as
+\emph{consistent with} quadratic rather than established. Second, the finite-size scaling
+of the spectral gap is well fit by $\lambda_1 = a/N^2 + b$ with a nonzero intercept $b$ at
+accessible sizes; leave-one-out and normalisation-sensitivity checks indicate that the
+significance of $b$ is not yet settled, and the pure scaling law $\lambda_1\propto N^{-2}$
+should be regarded as the large-$N$ hypothesis rather than a demonstrated result.
+
+\subsection{Emergent Coordinate Charts on the 2D Torus}
+Numerical diagonalisation of a relational kernel $I_{ij}=1/d_{ij}^{\,\alpha}$ on a discrete
+2D toroidal lattice demonstrates spontaneous coordinate chart generation. As shown in
+Fig.~\ref{fig:eigenmodes} for the $8\times8$ torus at the hyper-stiff point $\alpha=6$,
+mode~0 ($\lambda=0$) is the flat global ground state, and the first excited tier is a
+\emph{four-fold degenerate} multiplet at $\lambda=0.834$ whose span contains two mutually
+orthogonal long-wavelength gradients --- the coordinate charts of an emergent isotropic 2D
+manifold. (An earlier draft described this tier as a degenerate pair; the four-fold
+degeneracy is the correct statement for the torus, reflecting its $\pm k_x,\pm k_y$
+symmetry.) Higher modes define localised geometric harmonics with a UV cutoff set by the
+lattice spacing.
 
 \begin{figure}[t]
 \includegraphics[width=\linewidth]{eigenmodes.png}
-\caption{Emergent 2D eigenmodes from the substrate entanglement kernel. Mode~0 tracks the
-global ground state. Modes~1 and~2 form a degenerate pair that act as orthogonal coordinate
-gradients. Higher modes define localised geometric harmonics with a UV cutoff set by the
-lattice spacing.}
+\caption{Emergent eigenmodes of the relational kernel on the $8\times8$ torus at
+$\alpha=6$. Mode~0 ($\lambda=0.000$) is the invariant global ground state. Modes~1--4 form
+a four-fold degenerate tier at $\lambda=0.834$ whose span provides two orthogonal spatial
+coordinate gradients over an isotropic 2D manifold. Higher modes are localised geometric
+harmonics. All eigenvalues shown are computed outputs of the pipeline of
+Sec.~\ref{sec:code}.}
 \label{fig:eigenmodes}
 \end{figure}
 
-% ============================================================
+% ─────────────────────────────────────────────────────────────────────────────
 \section{Spectral Foundations of the Substrate Energy Density}
 \label{sec:spectral}
-% ============================================================
+% ─────────────────────────────────────────────────────────────────────────────
 
-\subsection{Canonical partition function and the spectral invariant $\rho_0$}
+\subsection{Canonical Partition Function and $\rho_0$}
 
-The macroscopic energy density of the substrate is derived from first-principles statistical
-mechanics. Treating the MI-Laplacian eigenvalues $\{\lambda_n\}$ as the spectrum of
-structural fluctuations, we define the canonical partition function over excited modes
-($\lambda_n>0$):
+The effective macroscopic energy density of the substrate is constructed from the
+statistical mechanics of the MI-Laplacian spectrum. Treating the eigenvalues
+$\{\lambda_n\}$ as the fundamental spectrum of structural fluctuations, we define the
+canonical partition function over excited modes ($\lambda_n>0$) as
 \begin{equation}
 Z = \sum_{n=1}^{N-1} e^{-\beta\lambda_n},
-\label{eq:Z_def}
 \end{equation}
-where $\beta$ is an inverse entanglement temperature.
-
-\paragraph*{Entanglement temperature.}
-The parameter $\beta$ is the Lagrange multiplier that fixes the average excitation energy in
-the canonical ensemble of relational degrees of freedom. The ensemble average
-\begin{equation}
-\langle\lambda\rangle_\beta =
-\frac{\sum_{n>0}\lambda_n e^{-\beta\lambda_n}}
-     {\sum_{n>0}e^{-\beta\lambda_n}}
-\end{equation}
-decreases with increasing $\beta$, suppressing short-wavelength fluctuations and producing a
-smooth emergent geometry. The entanglement temperature therefore encodes the
-renormalisation-group coarse-graining scale.
-
+where $\beta$ is an inverse entanglement temperature setting the coarse-graining scale.
 The internal energy density is
 \begin{equation}
-\rho_{\rm eff}
-= \frac{1}{V}\frac{\partial}{\partial\beta}\ln Z
-= \frac{1}{V}
-\frac{\sum_{n>0}\lambda_n e^{-\beta\lambda_n}}
-     {\sum_{n>0}e^{-\beta\lambda_n}}.
-\label{eq:rho_eff_def}
+\rho_{\rm eff} = -\frac{\partial\ln Z}{\partial\beta}
+= \frac{\sum_n \lambda_n e^{-\beta\lambda_n}}{\sum_n e^{-\beta\lambda_n}},
 \end{equation}
-
-A key quantity is the integrated spectral weight
+and the integrated spectral weight at the hyper-stiff point is
 \begin{equation}
-\rho_0 = \int_{\lambda_{\min}}^{\lambda_{\max}}
-\lambda\,g(\lambda)\,d\lambda,
+\rho_0 = \int_{\lambda_{\min}}^{\lambda_{\max}} \lambda\,g(\lambda)\,d\lambda,
 \label{eq:rho0}
 \end{equation}
-where $g(\lambda)$ is the MI-Laplacian spectral density. At the hyper-stiff transition
-($\alpha=6$), $\rho_0$ becomes a spectral invariant determined entirely by the topology and
-connectivity of the relational graph.
+where $g(\lambda)$ is the MI-Laplacian spectral density.
 
-Numerical evaluation on an $8\times 8$ toroidal lattice yields
-\begin{equation}
-\rho_0 = 4.728\ \text{(lattice units)},\qquad
-\lambda\in[0.834,8.148],\qquad N_{\rm modes}=63.
-\end{equation}
-The Weyl-weighted spectral centroid gives $\rho_0^{\rm Weyl}=5.31$, consistent to within
-12\%.
+Earlier drafts described $\rho_0$ as a ``spectral invariant'' on the basis of a single
+$8\times8$ evaluation. Here we establish the correct, weaker, and well-supported statement:
+$\rho_0$ \emph{converges to a lattice-independent continuum value}. Scanning toroidal
+lattices from $L=4$ to $L=16$ at $\alpha=6$ (Fig.~\ref{fig:rho0}) yields
+$\rho_0 = 4.870,\,4.776,\,4.728,\,4.704,\,4.691,\,4.682,\,4.677$, a monotone approach with
+total spread below $4\%$ and a fitted size dependence $\rho_0\propto N^{p}$ with
+$p=-0.014$, i.e.\ consistent with $N$-independence. We quote the continuum estimate
+$\rho_0 \approx 4.68$ (lattice units); the previously reported $8\times8$ value of $4.728$
+lies within $1.1\%$ of it.
 
-\subsection{Physical amplitude and the role of $\varepsilon_0$}
+\begin{figure}[t]
+\includegraphics[width=\linewidth]{rho0_convergence.png}
+\caption{Continuum convergence of $\rho_0$ at $\alpha=6$ across toroidal lattices $L=4$--$16$.
+The fitted size exponent is $p=-0.014$, consistent with a lattice-independent continuum
+value $\rho_0\approx4.68$.}
+\label{fig:rho0}
+\end{figure}
 
-Conversion to physical units requires a microscopic energy scale $\varepsilon_0$ and an
-effective lattice volume $V$:
+\subsection{Physical Amplitude: The Roles of $\varepsilon_0$ and $\delta$}
+\label{sec:amplitude}
+
+Converting $\rho_0$ to physical units requires a microscopic energy scale $\varepsilon_0$
+(energy per eigenvalue unit) and an effective lattice volume $V$:
 \begin{equation}
 \rho_{\rm phys} = \frac{\rho_0\,N\,\varepsilon_0}{V}.
 \end{equation}
-The spectral tilt, UV behaviour, and loop finiteness of the resulting gravitational-wave
-spectrum are independent of $\varepsilon_0$; only the overall amplitude depends on this
-microscopic scale. This mirrors inflationary cosmology, where the tilt is robust but the
-amplitude depends on the potential height.
+Earlier drafts identified $\varepsilon_0$ as the sole free parameter of the amplitude
+sector. The computed tensor spectra of Sec.~\ref{sec:pheno} show that this is not the case:
+at fixed $\varepsilon_0$, the particle-production amplitude varies by four orders of
+magnitude as the spike duration $\delta$ ranges over $[0.4,0.6]$, while the spectral
+\emph{tilt} is insensitive to $\delta$. The amplitude sector therefore carries (at least)
+two free parameters, $\varepsilon_0$ and $\delta$, and no observational amplitude claim is
+made in this paper. The tilt and the ultraviolet power-law form of the spectrum are the
+parameter-robust outputs.
 
-\subsection{Two distinct notions of dimension}
+\subsection{Two Distinct Dimension Concepts}
+\label{sec:dims}
 
-Two independent dimension concepts arise in emergent-geometry models.
+A source of potential confusion in the literature on emergent geometry is the conflation
+of two distinct notions of dimension. We distinguish them here and state the fit
+prescription explicitly.
 
-The \emph{Weyl spectral dimension} is extracted from the eigenvalue counting function:
+The \emph{Weyl spectral dimension} $d_{\rm eff}^{\rm Weyl}$ is extracted from the
+MI-Laplacian eigenvalue counting function via
 \begin{equation}
-\lambda_n \propto n^{2/d_{\rm eff}^{\rm Weyl}}.
+\lambda_n \propto n^{2/d_{\rm eff}^{\rm Weyl}},
 \end{equation}
+fitting the slope of $\log\lambda_n$ versus $\log n$ over the low-lying spectrum. All
+values in Table~\ref{tab:dims} use the fit window $n=1$--$12$ on the $6\times6$ torus; the
+extracted dimension depends on this window, which earlier drafts left unstated.
 
-The \emph{fluid dimension} follows from the equation-of-state scaling
+The \emph{fluid dimension} $d_{\rm fluid}$ is inferred from the equation-of-state scaling
 \begin{equation}
-\rho_{\rm eff}(a)\propto a^{-3(1+w_{\rm eff})},\qquad
-d_{\rm fluid}=3(1+w_{\rm eff})=\alpha.
+\rho_{\rm eff}(a)\propto a^{-3(1+w_{\rm eff})},\quad
+d_{\rm fluid} = 3(1+w_{\rm eff}) = \alpha,
 \end{equation}
-
-These dimensions are not equal in general. Numerical scans on a $6\times 6$ toroidal
-lattice give the values in Table~\ref{tab:dims}.
+where the second equality follows directly from $w_{\rm eff}=\alpha/3-1$.
 
 \begin{table}[h]
 \centering
 \caption{Weyl spectral dimension $d_{\rm eff}^{\rm Weyl}$ versus fluid dimension
-$d_{\rm fluid}=\alpha$ for selected MI decay exponents $\alpha$.}
+$d_{\rm fluid}=\alpha$ at selected values of the MI decay exponent $\alpha$
+($6\times6$ torus, fit window $n=1$--$12$). All values are outputs of the pipeline of
+Sec.~\ref{sec:code}.}
 \label{tab:dims}
 \begin{ruledtabular}
 \begin{tabular}{cccc}
@@ -235,57 +260,52 @@ $\alpha$ & $w_{\rm eff}$ & $d_{\rm eff}^{\rm Weyl}$ & $d_{\rm fluid}$\\
 \end{ruledtabular}
 \end{table}
 
-At the hyper-stiff transition ($\alpha=6$), the Weyl spectral dimension is
-$d_{\rm eff}^{\rm Weyl}=3.81$, not 8. The higher value corresponds to a distinct
-power-law regime at $\alpha=1.5$ and must not be conflated with the hyper-stiff phase.
-% ============================================================
-\section{Holographic Saturation and the Confinement Potential}
-% ============================================================
+These two quantities are \emph{not} equal in general. At the hyper-stiff transition
+($\alpha=6$, $w_{\rm eff}=1$) the Weyl spectral dimension is
+$d_{\rm eff}^{\rm Weyl}=3.81$, not 8. The value $d_{\rm eff}\approx8$ at $\alpha=1.5$
+($w_{\rm eff}=-0.5$) belongs to a distinct regime from the hyper-stiff transition.
+These two regimes must not be conflated.
 
-\subsection{Information bound and saturation radius}
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Holographic Saturation and Confinement Potential}
+% ─────────────────────────────────────────────────────────────────────────────
 
-A collapsing region of radius $r$ possesses a maximum information capacity bounded by its
-surface area according to the holographic principle \cite{tHooft1993, Susskind1995}:
+\subsection{Information Bound}
+A collapsing region of radius $r$ has an information storage capacity strictly bounded by
+its boundary area according to the holographic principle \cite{tHooft1993, Susskind1995}:
 \begin{equation}
-I_{\max}(r) = \frac{A}{4} = \pi r^2.
+I_{\max}(r) = \frac{A}{4} = \pi r^2,
 \end{equation}
-As the collapse proceeds, the information content approaches this bound. At a limiting
-radius $r=r_0$, the system reaches complete saturation, and no further compression of
-information is possible without violating holographic consistency.
+reaching complete information saturation at a limiting minimal radius $r=r_0$.
 
-\subsection{Sign reversal of the effective confinement potential}
-
-We model the macroscopic effect of saturation through an effective confinement potential
-$V_{\rm conf}(\rho)$:
+\subsection{Sign Reversal of $V_{\rm conf}$ (Ansatz)}
+We introduce an effective macroscopic confinement potential $V_{\rm conf}(\rho)$:
 \begin{equation}
-V_{\rm conf}(\rho)=
+V_{\rm conf}(\rho) =
 \begin{cases}
 0, & \rho < \rho_{\rm sat},\\
-\le 0, & \rho = \rho_{\rm sat},\\
+\leq 0, & \rho = \rho_{\rm sat},\\
 < 0, & \rho > \rho_{\rm sat}.
 \end{cases}
+\label{eq:vconf}
 \end{equation}
+We emphasise that Eq.~(\ref{eq:vconf}) is a \emph{phenomenological ansatz}: the sign flip
+is postulated as the macroscopic signature of a conjectured microphysical phase transition
+in which the attractive gravitational degrees of freedom condense and manifest net
+repulsion at extreme densities. No microscopic Hamiltonian realising this transition is
+provided here, and its construction is the principal open problem of the framework.
 
-The sign reversal at $\rho_{\rm sat}$ represents a thermodynamic phase transition in which
-the conventional attractive gravitational degrees of freedom reorganise into a repulsive
-configuration. This repulsion is not introduced by exotic matter fields but emerges as a
-collective effect of holographic saturation.
-
-
-% ============================================================
+% ─────────────────────────────────────────────────────────────────────────────
 \section{GR-Consistent Junction Formulation}
-% ============================================================
+% ─────────────────────────────────────────────────────────────────────────────
 
-\subsection{The bounce as a causal boundary}
+\subsection{Causal Boundary}
+The collapse--expansion bounce is modelled entirely within classical GR across a spacelike
+hypersurface $\Sigma$, which behaves as a strict localised causal boundary.
 
-The transition from collapse to expansion is implemented entirely within classical GR as a
-junction across a spacelike hypersurface $\Sigma$. This hypersurface acts as a strict
-causal boundary: information cannot propagate across it from the collapsing interior to the
-expanding exterior except through the matching conditions.
-
-\subsection{Israel--Darmois junction conditions}
-
-The induced metric $h_{ab}$ must be continuous across $\Sigma$:
+\subsection{Israel--Darmois Junction}
+Matching the interior collapsing and exterior expanding spacetimes requires satisfying the
+Israel--Darmois junction conditions. The induced metric $h_{ab}$ must be continuous:
 \begin{equation}
 [h_{ab}] = h_{ab}^+ - h_{ab}^- = 0.
 \end{equation}
@@ -293,247 +313,337 @@ The jump in extrinsic curvature $K_{ab}$ is related to the surface stress-energy
 \begin{equation}
 [K_{ab}] - h_{ab}[K] = -8\pi G\,S_{ab}.
 \end{equation}
-Because the transition occurs at global holographic saturation, the surface stress-energy
-vanishes ($S_{ab}\to 0$). The bounce is therefore driven by a geometric momentum reflection
-rather than by exotic matter or violations of the energy conditions.
+We \emph{assume} that at global holographic saturation $S_{ab}\to0$, so that the bounce is
+driven by a geometric momentum reflection across $\Sigma$ rather than exotic matter fields.
+This assumption is physically motivated by the saturation condition but is not derived
+from it here; establishing $S_{ab}\to0$ from the microphysics is an open task.
 
-\subsection{Modified Friedmann equation near saturation}
-
-Near the saturation hypersurface, the effective dynamics are governed by
+\subsection{Modified Friedmann Equation (Ansatz)}
+Near the saturation hypersurface the effective dynamics are taken to be
 \begin{equation}
 H^2 = \frac{\rho}{3}\left[1 - \chi(\rho)\right],
 \end{equation}
-where the smooth saturation envelope is
+with the smooth saturation envelope
 \begin{equation}
-\chi(\rho)=\frac{1}{2}\left[1+\tanh\!\left(\frac{\rho-\rho_{\rm sat}}{\Delta\rho}\right)\right].
+\chi(\rho) = \frac{1}{2}\left[1+\tanh\!\left(\frac{\rho-\rho_{\rm sat}}{\Delta\rho}\right)\right].
+\label{eq:envelope}
 \end{equation}
-This form ensures a continuous variation of the deceleration parameter and a smooth
-transition through the bounce, consistent with the thermodynamic dilution of degrees of
-freedom near saturation.
+The $\tanh$ form is chosen for smoothness and is not derived; alternative envelopes with
+the same limits are equally admissible at this stage, and Sec.~\ref{sec:causality} shows
+that the choice is in fact \emph{constrained} by causality.
 
-% ============================================================
+% ─────────────────────────────────────────────────────────────────────────────
 \section{Entropy Inheritance and Renormalisation}
-% ============================================================
+% ─────────────────────────────────────────────────────────────────────────────
 
-In a cyclic universe, the entropy produced during the expansion phase of cycle $n$, together
-with the entropy inherited from cycle $n-1$, determines the total entropy deposited into the
-next bounce throat:
+In a cyclic universe, the absolute entropy produced during the expansion phase of cycle $n$,
+combined with the residual entropy inherited from cycle $n-1$, dictates the total entropy
+dumped into the subsequent bounce throat:
 \begin{equation}
 S_{\rm dump}^{(n)} = S_{\rm prod}^{(n)} + S_{\rm inh}^{(n)}.
 \end{equation}
-The renormalised inhomogeneity ratio is defined as
+The dimensionless renormalised inhomogeneity ratio is
 \begin{equation}
 \tilde{S}^{(n+1)} = \frac{S_{\rm inh}^{(n+1)}}{S_{\max}^{(n+1)}}.
 \end{equation}
+If the total available phase space $S_{\max}$ expands at a faster geometric rate than the
+inherited entropy across each bounce, the universe re-enters the expansion phase in an
+effectively low-entropy configuration without non-unitary entropy destruction. Whether the
+substrate dynamics enforce this hierarchy of growth rates is not derived here; it is the
+defining assumption of the cyclic sector.
 
-Although the absolute entropy $S_{\rm tot}$ increases monotonically in accordance with the
-generalised second law, the total available phase space $S_{\max}$ grows even faster across
-successive cycles. As a result, the universe re-enters each expansion phase in a highly
-ordered, effectively low-entropy configuration without requiring entropy destruction or
-non-unitary evolution.
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Homogenisation (Conjecture)}
+\label{sec:homog}
+% ─────────────────────────────────────────────────────────────────────────────
 
-% ============================================================
-\section{Homogenisation Mechanisms}
-% ============================================================
+The generation of an isotropic background from an initially asymmetrical collapse is
+conjectured to proceed in two stages: chaotic mixing during the late contracting phase,
+followed by holographic coarse-graining of the remaining bulk fluctuations into
+$\mathcal{O}(A/\ell_P^2)$ boundary degrees of freedom near saturation.
 
-The emergence of a homogeneous FLRW geometry after each bounce is achieved through two
-mechanisms:
+We flag this mechanism as a conjecture rather than a result. In direct numerical tests, a
+naive real-space block decimation (Kron reduction) of anisotropic MI graphs does \emph{not}
+by itself reduce the anisotropy of the effective couplings; the anisotropy measure
+fluctuates rather than flowing to zero under successive decimation steps. If holographic
+coarse-graining suppresses anisotropy, it must do so through a different operation (for
+example, spectral projection onto low-lying modes), and demonstrating this explicitly is
+required before the mechanism can be claimed. Consequently, no solution to the flatness or
+horizon problems is claimed in this paper.
 
-\begin{enumerate}
-\item \textbf{Chaotic mixing during collapse.}  
-Near the end of the contracting phase, strong non-linearities in the gravitational
-potential induce chaotic mixing, fragmenting large-scale anisotropies into small-scale
-structures.
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Cyclic Attractor (Phenomenological)}
+\label{sec:attractor}
+% ─────────────────────────────────────────────────────────────────────────────
 
-\item \textbf{Holographic coarse-graining at saturation.}  
-As the density approaches $\rho_{\rm sat}$, the holographic boundary projects the remaining
-bulk fluctuations into $\mathcal{O}(A/\ell_P^2)$ organised boundary degrees of freedom.
-This projection erases residual anisotropies and provides uniform initial conditions for
-the subsequent FLRW expansion.
-\end{enumerate}
-
-Together, these mechanisms ensure that each cycle begins in a homogeneous and isotropic
-state without invoking inflation.
-
-% ============================================================
-\section{Cyclic Attractor and Renormalisation Flow}
-% ============================================================
-
-Each bounce defines a discrete renormalisation-group-like map
+Each discrete cosmic bounce defines a discrete map $\mathcal{R}$ on the space of effective
+background couplings:
 \begin{equation}
-\mathcal{R}:\{\lambda^{(n)}\}\mapsto\{\lambda^{(n+1)}\},
+\mathcal{R}:\{\lambda^{(n)}\}\mapsto\{\lambda^{(n+1)}\}.
 \end{equation}
-acting on the effective background couplings.
+We model the cycle-to-cycle dilution of inhomogeneity by the exponential damping ansatz
+\begin{equation}
+\mathcal{D}_n = \exp\!\left(-\frac{c\,N}{\rho_{\rm throat}^{(n)}}\right),
+\qquad 0<\mathcal{D}_n<1,
+\label{eq:damping}
+\end{equation}
+where $\rho_{\rm throat}^{(n)}$ is the partition-function energy density of the
+MI-Laplacian evaluated at the $n$-th throat and $c$ is a dimensionless coefficient.
+
+Two honest statements replace the claims of earlier drafts. First, convergence of
+$\tilde{S}(n)$ to zero under Eq.~(\ref{eq:damping}) is \emph{generic}, not fine-tuned:
+because $0<\mathcal{D}_n<1$ for any $c>0$ while $S_{\max}$ grows geometrically, the
+renormalised ratio decays for essentially any coefficient (Fig.~\ref{fig:attractor} shows
+$c=0.05$, $0.22$, and $1.0$). The existence of the fixed point $\tilde{S}^*=0$ is therefore
+a structural property of the ansatz, and Fig.~\ref{fig:attractor} is an illustration of
+that ansatz, not a derivation. Second, the coefficient $c$ is a free parameter: direct
+attempts to derive it from the Gibbs entropy of the MI-Laplacian partition function do not
+yield a stable value, so we do not attach significance to any particular choice. A
+first-principles derivation of the damping rate is an open problem.
 
 \begin{figure}[t]
-\includegraphics[width=\linewidth]{entropy_attractor.png}
-\caption{Cyclic renormalisation attractor. Left: total entropy $S_{\rm tot}$ grows
-monotonically but remains below the increasing capacity $S_{\max}$. Right: the renormalised
-inhomogeneity ratio $\tilde{S}(n)$ decays exponentially to a stable fixed point at zero.}
-\label{fig:entropy_attractor}
+\includegraphics[width=\linewidth]{attractor_genericity.png}
+\caption{Decay of the renormalised inhomogeneity ratio $\tilde{S}(n)$ under the exponential
+damping ansatz of Eq.~(\ref{eq:damping}) for three values of the damping coefficient $c$,
+with $\rho_{\rm throat}^{(n)}$ computed from MI-Laplacian spectra along a near-critical
+schedule. Convergence to $\tilde{S}^*=0$ is generic across coefficients; the figure
+illustrates the qualitative behaviour of the ansatz and is not a derivation of a specific
+rate.}
+\label{fig:attractor}
 \end{figure}
 
-Numerical simulations reveal a highly stable geometric fixed point
-(Fig.~\ref{fig:entropy_attractor}). Even with large initial asymmetry
-($\tilde{S}^{(0)}=0.30$), the renormalised inhomogeneity ratio decays exponentially and
-converges to $\tilde{S}^*=0$ by cycle~10.
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Scalar Perturbations Across the Holographic Saturation Bounce}
+% ─────────────────────────────────────────────────────────────────────────────
 
-The damping factor,
-\begin{equation}
-\mathcal{D}_n = \exp\!\left(-\frac{0.22\,N}{\rho_{\rm throat}^{(n)}}\right),
-\end{equation}
-arises directly from the MI-Laplacian partition function. The ratio
-$N/\rho_{\rm throat}$ measures the proximity to the saturation ceiling
-$\rho_{\rm eff}^{\max}=N$, and the exponential suppression reflects the collapse of the
-available phase space near saturation.
-
-This attractor mechanism provides an inflation-free solution to the flatness and horizon
-problems: a homogeneous, flat cosmic geometry is the inevitable global fixed point of the
-cyclic evolution.
-
-% ============================================================
-\section{Scalar Perturbations Through the Bounce}
-% ============================================================
-
-\subsection{Perturbation framework}
-
-We analyse linear perturbations in the longitudinal gauge:
+\subsection{Perturbation Framework}
+We evaluate the structural stability of the bounce by tracking linear cosmological
+perturbations in the longitudinal gauge:
 \begin{equation}
 ds^2 = -(1+2\Phi)\,dt^2 + a(t)^2(1-2\Phi)\,d\vec{x}^2,
 \end{equation}
-where $\Phi$ is the gauge-invariant gravitational potential. The comoving curvature
-perturbation is
+where $\Phi$ denotes the gauge-invariant gravitational potential. The comoving curvature
+perturbation $\zeta$ is
 \begin{equation}
 \zeta = -\Phi - \frac{H}{\dot{\rho}}\,\delta\rho.
 \end{equation}
-In conformal time, the Mukhanov--Sasaki variable $v=z\zeta$ satisfies
+Transforming to conformal time, the Mukhanov--Sasaki variable $v=z\zeta$ satisfies
 \begin{equation}
 v_k'' + \left(c_s^2 k^2 - \frac{z''}{z}\right)v_k = 0.
 \end{equation}
 
-\subsection{Effective sound speed and causality}
-
+\subsection{Effective Sound Speed and the Causality Constraint}
+\label{sec:causality}
 From the modified Friedmann framework,
 \begin{equation}
-\rho_{\rm eff}=\rho[1-\chi(\rho)],\qquad
-\dot{H}=-\tfrac{1}{2}(\rho_{\rm eff}+p_{\rm eff}),
+\rho_{\rm eff} = \rho[1-\chi(\rho)],\qquad
+\dot{H} = -\tfrac{1}{2}(\rho_{\rm eff}+p_{\rm eff}),
 \end{equation}
-the effective sound speed is
+with the adiabatic identification
 \begin{equation}
 c_s^2 = \frac{\partial p_{\rm eff}}{\partial\rho}.
 \end{equation}
-It remains strictly positive and bounded ($0<c_s^2\le 1$). At the hyper-stiff transition
-($w_{\rm eff}=1$, $\alpha=6$), the causal bound is saturated: $c_s=c$. This resolves the
-acausality present in earlier phenomenological models that invoked $w\gg 1$.
+Under this identification, causality ($c_s\leq c$) requires $w_{\rm eff}\leq1$ throughout
+the evolution. Earlier drafts claimed that the framework achieves exactly the causal bound,
+$c_s^2=w_{\rm eff}=1$, at the hyper-stiff point. Direct computation shows that the specific
+confinement profile of Sec.~\ref{sec:pheno} does \emph{not} satisfy this: solving the
+continuity equation for the profile of Eq.~(\ref{eq:profile}) on a radiation background
+yields a peak effective equation of state $w\approx2.14$ (Fig.~\ref{fig:weff}), because the
+$\tanh$ envelope is steeper than $a^{-6}$ scaling. The causality requirement therefore acts
+as a nontrivial \emph{constraint on the profile class}: either (i) the envelope must be
+redesigned so that $\rho_{\rm conf}$ falls no faster than $a^{-6}$, bounding $w\leq1$; or
+(ii) the confinement component must be realised non-adiabatically, with $c_s^2\neq w$ ---
+a nontrivial requirement, since a canonical scalar field cannot exceed $w=1$. We state
+this tension openly rather than claiming its resolution. The earlier hand-tuned
+$w_{\rm conf}\simeq80$ parameterisation, which implied $c_s\approx8.94c$, remains
+excluded in either case.
 
-\subsection{Behaviour of the pump term}
+\begin{figure}[t]
+\includegraphics[width=\linewidth]{weff_profile.png}
+\caption{Effective equation of state $w_{\rm eff}(a)$ computed from the continuity equation
+for the confinement profile of Eq.~(\ref{eq:profile}) on a radiation background
+($\delta=0.5$). The peak value $w\approx2.14$ exceeds the causal bound $w=1$ implied by the
+adiabatic identification $c_s^2=w$, constraining the admissible profile class
+(Sec.~\ref{sec:causality}).}
+\label{fig:weff}
+\end{figure}
 
-As the universe passes through the bounce, $H\to 0$ but $\dot{H}>0$ remains finite. The
-scaling variable $z\propto a\sqrt{\rho+p}/H$ therefore remains finite, and the pump term
-$z''/z$ does not diverge. The perturbation equations remain well-behaved throughout the
-transition.
+\subsection{Behaviour of $z''/z$}
+As the universe passes through the bounce throat, $H\to0$. Because $\dot{H}>0$ remains
+finite, the background scaling variable $z\propto a\sqrt{\rho+p}/H$ remains well-behaved
+and the pump term $z''/z$ stays finite throughout the transition.
 
-\subsection{Matching conditions}
-
-The Israel--Darmois conditions imply
+\subsection{Matching Conditions}
+Applying the Israel--Darmois matching conditions across $\Sigma$ guarantees smooth
+transmission of fluctuations:
 \begin{equation}
-[\Phi]=0,\qquad [\zeta]=0.
+[\Phi] = 0,\qquad[\zeta] = 0.
 \end{equation}
-Long-wavelength modes ($k\ll aH$) satisfy $\zeta'\approx 0$ and transmit smoothly across
-the bounce. Short-wavelength modes undergo stable adiabatic oscillations. No ghost or
-tachyonic instabilities arise.
+Long-wavelength modes ($k\ll aH$) satisfy $\zeta'\approx0$, conserving primordial
+amplitudes across the throat. Short-wavelength modes undergo stable adiabatic oscillations.
 
-% ============================================================
-\section{Phenomenology: Hyper-Stiff Phase and Tensor Spectrum}
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Phenomenology: The Transient Confinement Spike and the Computed Tensor Spectrum}
 \label{sec:pheno}
-% ============================================================
+% ─────────────────────────────────────────────────────────────────────────────
 
-\subsection{Confinement energy and the hyper-stiff spike}
+\subsection{Confinement Energy Profile}
 
-Residual higher-dimensional confinement energy left over from the geometric reflection
-phase produces a transient contribution to the early expansion-era energy density:
+Residual confinement energy left over from the geometric reflection phase is modelled as a
+transient component in the early expansion era:
 \begin{equation}
-\rho_{\rm conf}(a) = \rho_0\,\chi(a)\,[1-\chi(a)]^8,
+\rho_{\rm conf}(a) = \rho_0\,\chi(a)[1-\chi(a)]^8,
+\qquad
+\chi(a)=\tfrac{1}{2}\!\left[1+\tanh\!\left(\tfrac{a_c-a}{\Delta a}\right)\right],
+\label{eq:profile}
 \end{equation}
-where $\chi(a)=\tfrac{1}{2}[1+\tanh((a_c-a)/\Delta a)]$. This generates a brief hyper-stiff
-equation of state ($p>\rho$), with the peak value determined by the MI-Laplacian partition
-function at $\alpha=6$:
-\begin{equation}
-w_{\rm eff} = \frac{\alpha}{3}-1 = 1,\qquad
-\rho_{\rm eff}(a)\propto a^{-6}.
-\end{equation}
+on a standard radiation background $\rho_{\rm rad}\propto a^{-4}$, with the spike duration
+parameterised by $\delta \equiv \Delta a/a_c$ (in e-folds). The functional form of
+Eq.~(\ref{eq:profile}) is an ansatz; as shown in Sec.~\ref{sec:causality}, it drives the
+effective equation of state to $w\approx2.1$ at the spike, so within the adiabatic
+identification it lies outside the causal profile class and should be regarded as a
+first-pass parameterisation whose replacement is constrained by $w\leq1$.
 
-The corresponding conformal potential is
-\begin{equation}
-\frac{a''}{a} = a^2H^2(1-3w_{\rm eff}) = -2a^2H^2,
-\end{equation}
-which is strictly negative. This amplifies sub-horizon tensor modes without violating
-causality ($c_s=c$) and without introducing ghost or gradient instabilities
-($\omega_k^2=k^2+2a^2H^2>0$). The earlier inconsistency associated with phenomenological
-choices such as $w\sim 80$ is therefore eliminated.
+\subsection{Computed Tensor Spectrum}
+\label{sec:tensor}
 
-\subsection{Tensor spectral index}
-The tensor spectral index for a finite-duration hyper-stiff transient is obtained by numerically integrating the Mukhanov–Sasaki equation
+We integrate the tensor Mukhanov--Sasaki equation
 \begin{equation}
-v_k'' + \omega_k^2(\tau) v_k = 0, \quad \omega_k^2 = k^2 - \frac{a''}{a},
+v_k'' + \left(k^2 - \frac{a''}{a}\right)v_k = 0
 \end{equation}
-across the spike. The analytic expression
+through the transient, with the background $a(\tau)$, $a''/a$, and conformal time obtained
+by exact quadrature of the Friedmann and continuity equations for
+Eq.~(\ref{eq:profile}) plus radiation. Modes are initialised in the adiabatic vacuum
+$v_k=e^{-ik\tau}/\sqrt{2k}$ deep inside the horizon before the spike, evolved with an
+adaptive Runge--Kutta integrator, and the Bogoliubov coefficient $\beta_k$ is extracted by
+projection onto positive- and negative-frequency solutions after the spike. Two internal
+checks validate the extraction: (i) the Bogoliubov normalisation
+$|\alpha_k|^2-|\beta_k|^2=1$ is conserved to the $10^{-5}$ level at default tolerance and
+to $10^{-10}$ with tightened tolerance; (ii) $|\beta_k|^2$ is stable to four significant
+figures under an order-of-magnitude tightening of the solver tolerance.
+
+The results (Fig.~\ref{fig:tensor}) are as follows. Over the ultraviolet window
+$k/(aH)_{\rm spike}\in[80,320]$ the particle-production spectrum is a clean power law,
 \begin{equation}
-n_T^{\mathrm{analytic}} = \frac{6w_{\mathrm{eff}} - 2}{1 + 3w_{\mathrm{eff}}}
+|\beta_k|^2 \propto k^{-4},
 \end{equation}
-applies only for an eternal constant-$w$ background. For $w_{\mathrm{eff}} = 1$, it yields $n_T^{\mathrm{analytic}} = 1$, which underestimates the true tilt.
+with fitted tail slopes $-3.92$ ($\delta=0.4$; fit residuals $\lesssim0.04$), $-3.99$
+($\delta=0.5$) and $-3.99$ ($\delta=0.6$; residuals $\sim10^{-3}$). Under the standard
+convention $P_T\propto k^3|\beta_k|^2$ this corresponds to a \emph{red} tensor tilt,
+$n_T\approx-1$. Two structural features are robust: the tilt is insensitive to the spike
+duration $\delta$, while the amplitude is hypersensitive to it, varying by four orders of
+magnitude ($|\beta_{k=80}|^2 = 2.0\times10^{-23}$, $3.2\times10^{-19}$,
+$1.7\times10^{-16}$ for $\delta=0.4,0.5,0.6$).
 
-Full numerical integration using an implicit Radau solver with relative tolerance $10^{-8}$ gives
-\begin{equation}
-n_T = 1.822 \quad (\delta = 0.5 \text{ in } \ln a),
-\end{equation}
-with stability $|\Delta n_T| \lesssim 0.05$ over $\delta \in [0.4, 0.6]$. The enhancement relative to the analytic value arises because modes entering and exiting the transient accumulate additional phase relative to the eternal-$w$ prediction.
+These computed results supersede the estimate $n_T\simeq1.875$ reported in an earlier
+draft of this work. That estimate is withdrawn: it is not reproduced by
+direct Mukhanov--Sasaki integration of the profile of Eq.~(\ref{eq:profile}), and the
+finite-duration mechanism previously invoked to justify it (a $\delta$-dependent shift of
+the tilt away from the eternal-$w$ value) is contradicted by the computed
+$\delta$-insensitivity of the tilt. No blue-tilted gravitational-wave background, and in
+particular no PTA-band signal, is predicted by the present framework as formulated.
 
-The tensor transfer function satisfies the adiabatic unitary bound $\mathcal{T}(k) \leq 1$ across the ultraviolet grid $k \in [10^2, 10^4]$, ensuring loop finiteness:
-\begin{equation}
-\Delta_{\mathrm{loop}}^2 \propto \int \mathrm{d}k \mathcal{T}(k) k^3 < \infty.
-\end{equation}
+\begin{figure}[t]
+\includegraphics[width=\linewidth]{tensor_spectrum.png}
+\caption{Computed tensor particle-production spectra $|\beta_k|^2$ for spike durations
+$\delta=0.4$, $0.5$, $0.6$, from Mukhanov--Sasaki integration with adiabatic vacuum initial
+conditions and Wronskian-checked Bogoliubov extraction. The ultraviolet tail is
+$k^{-4}$ (dashed reference) for all durations: the tilt is $\delta$-robust while the
+amplitude varies by four orders of magnitude over $\delta\in[0.4,0.6]$.}
+\label{fig:tensor}
+\end{figure}
 
-\subsection{Gravitational-wave amplitude}
+\subsection{Ultraviolet Behaviour and Loop Sensitivity}
 
-The present-day spectral energy density is
-\begin{equation}
-\Omega_{\mathrm{GW}}(f) = \frac{1}{\rho_c} \frac{\mathrm{d}\rho_{\mathrm{GW}}}{\mathrm{d}\ln f} \propto \left(\frac{f}{f_{\mathrm{ref}}}\right)^{n_T},
-\end{equation}
-with a turnover at the millihertz scale set by the finite rupture duration. The overall amplitude is
-\begin{equation}
-\Omega_{\mathrm{GW}} = \frac{1}{12} \left(\frac{k}{a_0 H_0}\right)^2 \Omega_{\mathrm{rad}} P_h,
-\end{equation}
-where $P_h = (2/\pi^2)(H_{\mathrm{MI}}/M_{\mathrm{Pl}})^2$ depends on the physical substrate energy density $\rho_{\mathrm{phys}}$. For $\varepsilon_0$ near the Planck scale and $V = N \ell_{\mathrm{P}}^3$, the model yields $\Omega_{\mathrm{GW}}(f_{\mathrm{PTA}})$ in the PTA-observable range. 
+With $|\beta_k|^2\propto k^{-4}$, the graviton loop integrand scales as
+$dk\,k^3|\beta_k|^2\propto dk/k$: the loop contribution is \emph{marginally}
+(logarithmically) ultraviolet sensitive over the computed window, rather than finite as
+previously asserted. Two considerations bear on the deep ultraviolet. First, for smooth
+backgrounds particle production is generically expected to become exponentially suppressed
+at sufficiently large $k$, which would render the integral finite; mapping the location of
+this turnover requires extending the computation deeper into the UV and is left to future
+work. Second, the marginal scaling itself is a well-defined, falsifiable output of the
+present profile. We therefore replace the earlier claim of demonstrated loop finiteness
+with the computed statement: logarithmic UV sensitivity over the accessible window, with
+finiteness plausible but not yet demonstrated.
 
-The spectral tilt $n_T = 1.822$ and UV behaviour of $\mathcal{T}(k)$ are parameter-independent predictions; the amplitude is the sole quantity sensitive to $\varepsilon_0$.
-
-% ============================================================
+% ─────────────────────────────────────────────────────────────────────────────
 \section{Discussion}
-% ============================================================
+% ─────────────────────────────────────────────────────────────────────────────
 
-The framework developed here differs from loop quantum cosmology, conformal cyclic cosmology, and fuzzball-inspired holographic models. Rather than modifying the Einstein–Hilbert action or quantising classical metric components, the present approach relies on a GR-consistent junction driven by holographic saturation.
+The framework developed here differs from loop quantum cosmology \cite{AshtekarBojowald2006},
+conformal cyclic cosmology \cite{PenroseBook}, and traditional fuzzball constructions
+\cite{Susskind1995}. Rather than modifying the Einstein--Hilbert action with
+higher-derivative terms or quantizing individual classical metric elements, it relies on a
+GR-consistent junction driven by a holographic boundary condition.
 
-The spectral results of Sec. III place the mechanism on firm quantitative footing. Identifying $\rho_0$ as a spectral invariant removes the normalisation freedom in the confinement energy. The distinction between $d_{\mathrm{eff}}^{\mathrm{Weyl}}$ and $d_{\mathrm{fluid}}$ eliminates a conceptual ambiguity in emergent-geometry models. The numerical resolution of the tensor spectral index ($n_T = 1.822$) provides a sharp, falsifiable prediction for PTA–LISA synergy. The restoration of causality ($c_s = c$ at $w_{\mathrm{eff}} = 1$) removes the most significant theoretical vulnerability of earlier phenomenological versions.
+The revision undertaken in this version separates the framework's derived content from its
+ans\"atze, with the following net result. On the derived side: $\rho_0$ converges to a
+lattice-independent continuum value ($4.68$, spread $<4\%$ over $L=4$--$16$); the Weyl and
+fluid dimensions are distinct, with the fit prescription now stated (Table~\ref{tab:dims});
+the Heisenberg-chain benchmarks support the MI-Laplacian construction most strongly through
+the Luttinger-exponent correspondence ($r\approx0.96$); and the tensor spectrum of the
+confinement spike is a computed, validated $k^{-4}$ power law with a red tilt, a
+$\delta$-robust slope, and a $\delta$-hypersensitive amplitude. On the ansatz side: the
+confinement potential, the saturation envelope, the $S_{ab}\to0$ junction condition, the
+damping law of the cyclic attractor, and the homogenisation mechanism are all assumptions,
+the last of which is contradicted in its naive real-space form by direct tests and is
+downgraded to a conjecture.
 
-Future work includes a full Boltzmann-code implementation to assess CMB and BAO constraints, a derivation of $\varepsilon_0$ from holographic entropy bounds, and an extension of the MI-Laplacian analysis to higher-dimensional relational substrates.
+Two findings of this revision constrain the framework nontrivially. First, the causality
+requirement $w\leq1$ (under the adiabatic identification) excludes the $\tanh$ confinement
+envelope as written, since it drives $w$ to $\approx2.1$; admissible profiles must decay no
+faster than $a^{-6}$, or the confinement sector must be realised non-adiabatically.
+Second, the withdrawal of the blue-tilt prediction removes the framework's previously
+claimed PTA-band signature; the observationally relevant outputs are now the red-tilted
+$k^{-4}$ tensor tail and its duration-sensitive amplitude, whose transfer to present-day
+frequencies has not yet been computed and is not asserted.
 
-% ============================================================
+Outstanding tasks include: a microscopic realisation of the confinement transition; a
+derivation (or principled replacement) of the damping coefficient in
+Eq.~(\ref{eq:damping}); an explicit coarse-graining scheme that demonstrably homogenises
+(Sec.~\ref{sec:homog}); a deep-UV extension of the tensor computation to locate the
+expected exponential turnover; and a redesigned confinement profile satisfying the
+$w\leq1$ constraint, followed by recomputation of the spectrum for that profile.
+
+% ─────────────────────────────────────────────────────────────────────────────
 \section{Conclusion}
-% ============================================================
+% ─────────────────────────────────────────────────────────────────────────────
 
-We have presented a general-relativistic cyclic cosmology in which holographic information saturation triggers a smooth cosmic bounce via Israel–Darmois junction conditions. Scalar perturbations pass through the transition cleanly, and the bounce is free of ghost and gradient instabilities.
+We have presented a cyclic cosmological framework in which holographic information
+saturation triggers a cosmic bounce modelled via Israel--Darmois junction conditions, with
+the framework's derived and phenomenological components explicitly separated. The
+established results are: (i) continuum convergence of the MI-Laplacian spectral weight,
+$\rho_0\approx4.68$, across lattice sizes $L=4$--$16$; (ii) a computed tensor spectrum for
+the transient confinement spike --- a validated $k^{-4}$ ultraviolet tail corresponding to
+a red tilt, insensitive to the spike duration in slope but spanning four orders of
+magnitude in amplitude over $\delta\in[0.4,0.6]$ --- superseding and withdrawing the
+earlier blue-tilt estimate $n_T\simeq1.875$; (iii) a clean distinction between the Weyl
+spectral dimension and the fluid equation-of-state dimension, with the fit window stated;
+(iv) a causality constraint on the confinement sector: the present $\tanh$ envelope yields
+$w\approx2.1>1$ and must be replaced by a profile bounded by $a^{-6}$ decay or by a
+non-adiabatic realisation; and (v) genericity of the cyclic attractor under the exponential
+damping ansatz, whose rate remains a free parameter. The framework's open problems ---
+microphysical derivations of the confinement transition, the damping rate, the junction
+condition, and the homogenisation mechanism --- are stated as such.
 
-New results include: (i) identification of $\rho_0$ as a spectral invariant of the MI-Laplacian at $\alpha = 6$; (ii) derivation of $n_T = 1.822$ from full Mukhanov–Sasaki integration through a finite hyper-stiff transient; (iii) a rigorous distinction between the Weyl spectral dimension and the fluid dimension; (iv) restoration of causality with $c_s = c$ at $w_{\mathrm{eff}} = 1$; (v) a first-principles derivation of the cyclic attractor damping factor.
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Code and Data Availability}
+\label{sec:code}
+% ─────────────────────────────────────────────────────────────────────────────
 
-The gravitational-wave amplitude depends on the microscopic scale $\varepsilon_0$, while the spectral tilt $n_T = 1.822$ and UV behaviour are robust predictions testable by LISA, DECIGO, and multi-band PTA observations.
+Every figure and every quoted number in this paper is generated by a single self-contained
+script, \texttt{generate\_all\_results.py} (dependencies: \texttt{numpy}, \texttt{scipy},
+\texttt{matplotlib}), which accompanies this manuscript. The Heisenberg-chain benchmarks of
+Sec.~\ref{sec:heisenberg}, including the AICc model comparisons, leave-one-out and
+normalisation robustness checks, are generated by \texttt{code/testing.py} \cite{CodeRepo}.
+Readers are encouraged to rerun both scripts.
 
 \begin{acknowledgements}
 The author thanks the independent physics research community for structural feedback on
-substrate-dynamics simulations.
+substrate dynamics scripts.
 \end{acknowledgements}
 
-% ============================================================
 \begin{thebibliography}{9}
 
 \bibitem{Penrose1965}
@@ -575,6 +685,14 @@ J.\ Math.\ Phys.\ \textbf{36}, 6377 (1995).
 M.~Van Raamsdonk,
 ``Building up spacetime with quantum entanglement,''
 Gen.\ Rel.\ Grav.\ \textbf{42}, 2323 (2010).
+
+\bibitem{CodeRepo}
+P.~Jarvis,
+``General-Relativistic Cyclic Cosmology from Holographic Saturation: Code Repository''
+(2026),
+\url{https://github.com/ZaPpi3/General-Relativistic-Cyclic-Cosmology-from-Holographic-Saturation}.
+Includes \texttt{code/generate\_all\_results.py} (all figures and numbers in this paper)
+and \texttt{code/testing.py} (Heisenberg-chain benchmarks and robustness suite).
 
 \end{thebibliography}
 
