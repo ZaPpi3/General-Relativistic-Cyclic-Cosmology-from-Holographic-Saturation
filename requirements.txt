@@ -1,0 +1,7 @@
+# Verified working versions (Python 3.13.14).
+# generate_all_results.py needs numpy, scipy, matplotlib.
+# testing.py additionally needs qutip.
+numpy==2.5.1
+scipy==1.18.0
+matplotlib==3.11.0
+qutip==5.3.0

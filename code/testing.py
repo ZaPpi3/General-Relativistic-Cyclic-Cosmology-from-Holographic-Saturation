@@ -15,11 +15,18 @@ graph Laplacian) are defined once and shared by both halves, so a change to
 the physics pipeline automatically propagates to every downstream test.
 """
 
+import sys
 import numpy as np
 import matplotlib.pyplot as plt
 from itertools import product
 from scipy.linalg import eigh
 from qutip import *
+
+# Force UTF-8 stdout so the Greek/math symbols in the print statements below
+# do not crash on platforms whose default console encoding is not UTF-8
+# (e.g. Windows cp1252).
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
 
 # ============================================================
 # System sizes
@@ -155,20 +162,20 @@ def fit_a_over_N2_plus_b(Ns, lam1):
     return slope, intercept, np.sqrt(cov[0, 0]), np.sqrt(cov[1, 1])
 
 # ============================================================
-# TEST 1 — Zero mode + Neumann boundary slopes
+# TEST 1-Zero mode + Neumann boundary slopes
 # ============================================================
 
 def test_zero_mode_and_boundary(N=12, modes=(1,2,3), boundary="open"):
     evals, vecs, _, _ = laplacian_spectrum(N, Delta=1.0, boundary=boundary)
     mode0 = vecs[:, 0]
-    print(f"[TEST 1] Zero‑mode flatness: std/mean = {np.std(mode0)/abs(np.mean(mode0)):.2e}")
+    print(f"[TEST 1] Zero-mode flatness: std/mean = {np.std(mode0)/abs(np.mean(mode0)):.2e}")
 
     for k in modes:
         v = vecs[:, k]
         left = abs(v[1] - v[0])
         right = abs(v[-1] - v[-2])
         bulk = np.mean(np.abs(np.diff(v[1:-1])))
-        print(f"[TEST 1] Boundary‑slope suppression for mode k={k}: left/bulk={left/bulk:.3f}, right/bulk={right/bulk:.3f}")
+        print(f"[TEST 1] Boundary-slope suppression for mode k={k}: left/bulk={left/bulk:.3f}, right/bulk={right/bulk:.3f}")
 
     plt.figure()
     for k in modes:
@@ -179,7 +186,7 @@ def test_zero_mode_and_boundary(N=12, modes=(1,2,3), boundary="open"):
     plt.close()
 
 # ============================================================
-# TEST 2 — Dispersion model comparison
+# TEST 2-Dispersion model comparison
 # ============================================================
 
 def test_dispersion_model(N=12, n_modes=8, boundary="open"):
@@ -201,7 +208,7 @@ def test_dispersion_model(N=12, n_modes=8, boundary="open"):
         print(f"  {name:10s} fit: R²={r2:.4f}, AICc={score:.2f}")
 
 # ============================================================
-# TEST 2b — Pooled dispersion
+# TEST 2b-Pooled dispersion
 # ============================================================
 
 def test_pooled_dispersion(Ns=Ns_extended, n_modes=8, boundary="open"):
@@ -229,7 +236,7 @@ def test_pooled_dispersion(Ns=Ns_extended, n_modes=8, boundary="open"):
         print(f"  {name:10s} fit: R²={r2:.4f}, AICc={score:.2f}")
 
 # ============================================================
-# TEST 3 — Finite-size scaling
+# TEST 3-Finite-size scaling
 # ============================================================
 
 def test_finite_size_scaling(Ns=Ns_extended, boundary="open"):
@@ -241,7 +248,7 @@ def test_finite_size_scaling(Ns=Ns_extended, boundary="open"):
     slope_err = np.sqrt(cov[0,0])
     intercept_err = np.sqrt(cov[1,1])
 
-    print(f"[TEST 3] Finite‑size scaling of λ₁ (boundary={boundary})")
+    print(f"[TEST 3] Finite-size scaling of λ₁ (boundary={boundary})")
     print(f"λ₁(N) = ({slope:.4f}±{slope_err:.4f})*(1/N²) + ({intercept:.5f}±{intercept_err:.5f})")
     print(f"Naive intercept significance: {abs(intercept)/intercept_err:.1f}σ "
           f"(see CHECK B/leave-one-out for why this overstates confidence)")
@@ -259,7 +266,7 @@ def test_finite_size_scaling(Ns=Ns_extended, boundary="open"):
     plt.close()
 
 # ============================================================
-# TEST 3b — Competing finite-size models (original, power-law only)
+# TEST 3b-Competing finite-size models (original, power-law only)
 # ============================================================
 
 def test_finite_size_models(Ns=Ns_extended, boundary="open"):
@@ -282,13 +289,13 @@ def test_finite_size_models(Ns=Ns_extended, boundary="open"):
     fit3 = X3 @ beta3
     aicc3 = aicc(lam1, fit3, 3)
 
-    print(f"[TEST 3b] Competing finite‑size models (boundary={boundary})")
+    print(f"[TEST 3b] Competing finite-size models (boundary={boundary})")
     print(f"  M1 (a/N² + b): AICc={aicc1:.3f}")
     print(f"  M2 (a/N²):     AICc={aicc2:.3f}")
     print(f"  M3 (a/N² + c/N³ + b): AICc={aicc3:.3f}")
 
 # ============================================================
-# TEST 3c — Bootstrap intercept (kept for continuity; see CHECK C for the
+# TEST 3c-Bootstrap intercept (kept for continuity; see CHECK C for the
 # leave-one-out sensitivity that should be used to interpret this honestly)
 # ============================================================
 
@@ -321,7 +328,7 @@ def test_finite_size_bootstrap(Ns=Ns_extended, n_boot=2000, boundary="open"):
     plt.close()
 
 # ============================================================
-# TEST 4 — IPR sweep
+# TEST 4-IPR sweep
 # ============================================================
 
 def inverse_participation_ratio(v):
@@ -349,7 +356,7 @@ def test_criticality_ipr(N=12, deltas=(1,1.5,2,3,4), modes=(1,2,3), boundary="op
     plt.close()
 
 # ============================================================
-# TEST 5 — λ₁ vs Luttinger K
+# TEST 5-λ₁ vs Luttinger K
 # ============================================================
 
 def test_lambda1_vs_K(N=12, deltas=np.linspace(-0.9,1.0,11), boundary="open"):
@@ -367,11 +374,11 @@ def test_lambda1_vs_K(N=12, deltas=np.linspace(-0.9,1.0,11), boundary="open"):
     print(f"[TEST 5] Correlation between λ₁ and Luttinger parameter K: r={r:.4f}")
 
 # ============================================================
-# TEST 6 — MI decay exponent vs theory
+# TEST 6-MI decay exponent vs theory
 # ============================================================
 
 def test_MI_decay_vs_theory(N=12, deltas=np.linspace(-0.9,1.0,11), boundary="open"):
-    print(f"[TEST 6] Mutual‑information decay exponent vs Luttinger prediction (boundary={boundary})")
+    print(f"[TEST 6] Mutual-information decay exponent vs Luttinger prediction (boundary={boundary})")
 
     predicted = []
     measured = []
@@ -407,7 +414,7 @@ def test_MI_decay_vs_theory(N=12, deltas=np.linspace(-0.9,1.0,11), boundary="ope
     plt.close()
 
 # ============================================================
-# TEST 8 — Synthetic periodic ring benchmark
+# TEST 8-Synthetic periodic ring benchmark
 # ============================================================
 
 def test_synthetic_ring(N=12, boundary="open"):
@@ -422,7 +429,7 @@ def test_synthetic_ring(N=12, boundary="open"):
         for i in range(4)
     ]
 
-    print(f"[TEST 8] Synthetic periodic‑ring benchmark (boundary={boundary})")
+    print(f"[TEST 8] Synthetic periodic-ring benchmark (boundary={boundary})")
     for i in range(4):
         print(
             f"  k={i}: λ_num={evals[i]:.4f}, "
@@ -443,7 +450,7 @@ def test_synthetic_ring(N=12, boundary="open"):
     plt.close()
 
 # ============================================================
-# CHECK A — Normalization robustness of the lambda_1 intercept
+# CHECK A-Normalization robustness of the lambda_1 intercept
 # ============================================================
 
 def check_normalization_robustness(Ns=Ns_extended, boundary="open"):
@@ -461,7 +468,7 @@ def check_normalization_robustness(Ns=Ns_extended, boundary="open"):
     return rows
 
 # ============================================================
-# CHECK B — Log-corrected finite-size models
+# CHECK B-Log-corrected finite-size models
 # ============================================================
 
 def check_log_correction_models(Ns=Ns_extended, normalization="max", boundary="open"):
@@ -498,7 +505,7 @@ def check_log_correction_models(Ns=Ns_extended, normalization="max", boundary="o
     return results
 
 # ============================================================
-# CHECK C — Honest leave-one-out sensitivity
+# CHECK C-Honest leave-one-out sensitivity
 # (replaces the statistically invalid "bootstrap over N" in TEST 3c)
 # ============================================================
 
@@ -520,7 +527,7 @@ def check_leave_one_out(Ns=Ns_extended, normalization="max", boundary="open"):
     return intercepts
 
 # ============================================================
-# CHECK D — Ground-state gap (rules out near-degenerate-ground-state issues)
+# CHECK D-Ground-state gap (rules out near-degenerate-ground-state issues)
 # ============================================================
 
 def check_ground_state_gaps(Ns=Ns_extended, boundary="open"):
@@ -605,7 +612,7 @@ def make_robustness_figures(Ns=Ns_extended):
         plt.close()
 
 # ============================================================
-# MAIN RUNNER — runs ALL tests AND ALL robustness checks, outputs ALL PNGs
+# MAIN RUNNER-runs ALL tests AND ALL robustness checks, outputs ALL PNGs
 # ============================================================
 
 if __name__ == "__main__":
