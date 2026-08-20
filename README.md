@@ -1,6 +1,6 @@
 # General-Relativistic Cyclic Cosmology from Holographic Saturation
 
-**Paul Jarvis** - Independent Researcher, United Kingdom
+**Paul Jarvis**, Independent Researcher, United Kingdom
 `mrpaulwjarvis@gmail.com`
 
 ---
@@ -11,14 +11,14 @@ This repository contains the manuscript and all numerical code for the paper
 *General-Relativistic Cyclic Cosmology from Holographic Saturation*.
 
 The paper proposes a cyclic cosmological framework in which the big-bang singularity is
-replaced by an information-saturation event modelled as an Israel–Darmois junction across
+replaced by an information-saturation event modelled as an Israel-Darmois junction across
 a spacelike hypersurface. It combines a pre-geometric substrate built from mutual-information
 graph Laplacians with a GR-consistent bounce mechanism and a computed tensor perturbation
 spectrum.
 
 **This version supersedes all earlier drafts.** In particular, the earlier blue-tilt
 estimate n_T ≃ 1.875 is withdrawn and replaced by the computed result from honest
-Mukhanov–Sasaki integration (see below).
+Mukhanov-Sasaki integration (see below).
 
 ---
 
@@ -75,7 +75,7 @@ python3 generate_all_results.py
 ```
 
 This produces all five figures into a `figures/` directory and prints every
-quoted number to the console. Runtime is approximately 2–4 minutes (the tensor
+quoted number to the console. Runtime is approximately 2-4 minutes (the tensor
 spectrum integration dominates).
 
 To run everything except the tensor spectrum (fast, ~20 seconds):
@@ -93,7 +93,7 @@ python3 testing.py
 This reproduces the Luttinger-exponent correspondence (r ≈ 0.96), dispersion
 model AICc comparisons, finite-size scaling, leave-one-out sensitivity, and
 normalisation robustness checks referenced in Section II.B of the paper.
-Runtime is approximately 10–20 minutes depending on hardware.
+Runtime is approximately 10-20 minutes depending on hardware.
 
 ---
 
@@ -101,11 +101,11 @@ Runtime is approximately 10–20 minutes depending on hardware.
 
 | Quantity | Result | Source |
 |---|---|---|
-| ρ₀ continuum value | 4.68 (spread <4% over L=4–16) | `generate_all_results.py` Fig. 2 |
+| ρ₀ continuum value | 4.68 (spread <4% over L=4-16) | `generate_all_results.py` Fig. 2 |
 | ρ₀ size exponent | p = −0.014 (N-independent) | `generate_all_results.py` Fig. 2 |
 | Weyl dim. at α=6 | d_Weyl = 3.81 | `generate_all_results.py` Table I |
 | Computed tensor tilt | n_T ≈ −1 (red; k⁻⁴ tail) | `generate_all_results.py` Fig. 5 |
-| Tilt δ-sensitivity | None (tilt robust over δ=0.4–0.6) | `generate_all_results.py` Fig. 5 |
+| Tilt δ-sensitivity | None (tilt robust over δ=0.4-0.6) | `generate_all_results.py` Fig. 5 |
 | Amplitude δ-sensitivity | ~4 orders of magnitude | `generate_all_results.py` Fig. 5 |
 | Peak w_eff from Eq.(27) | w ≈ 2.14 (exceeds causal bound) | `generate_all_results.py` Fig. 4 |
 | Luttinger exponent corr. | r ≈ 0.96 | `testing.py` Test 6 |
@@ -114,7 +114,7 @@ Runtime is approximately 10–20 minutes depending on hardware.
 
 ## What Changed from Earlier Versions
 
-- **n_T = 1.875 is withdrawn.** Direct Mukhanov–Sasaki integration of the paper's
+- **n_T = 1.875 is withdrawn.** Direct Mukhanov-Sasaki integration of the paper's
   exact confinement profile yields a red tilt (n_T ≈ −1), not a blue one. The
   mechanism previously claimed to produce the blue tilt (δ-dependent shift away
   from the eternal-w value) is contradicted by the computed δ-insensitivity of
@@ -131,7 +131,7 @@ Runtime is approximately 10–20 minutes depending on hardware.
   coefficient, and the specific rate remains open.
 
 - **ρ₀ is described as a continuum limit, not a "spectral invariant".** The
-  convergence study (L=4–16) supports a lattice-independent continuum value; the
+  convergence study (L=4-16) supports a lattice-independent continuum value; the
   stronger "invariant" language is not warranted.
 
 - **Homogenisation is a conjecture.** Direct tests show that naive graph

@@ -22,19 +22,19 @@ An Effective Framework with Computed Substrate and Tensor Spectra}
 \begin{abstract}
 We propose a cyclic cosmological framework in which the big-bang singularity is replaced by
 an information-saturation event that triggers a transition from gravitational collapse to
-expansion, modelled within general relativity as an Israel--Darmois junction across a
+expansion, modelled within general relativity as an Israel-Darmois junction across a
 spacelike hypersurface at a critical density. This paper's results fall into two classes,
 which we keep explicitly separate. Three results are computed outputs of a single,
 publicly available numerical pipeline. First, the integrated spectral weight $\rho_0$ of the
 mutual-information graph Laplacian at the hyper-stiff point ($\alpha=6$) converges to a
 lattice-independent continuum value ($\rho_0 \approx 4.68$, varying by $\lesssim 4\%$ across
-$L=4$--$16$ toroidal lattices), and we show that this Weyl spectral dimension is a distinct
+$L=4$-$16$ toroidal lattices), and we show that this Weyl spectral dimension is a distinct
 quantity from the fluid equation-of-state dimension, with the fit prescription stated
-explicitly. Second, direct Mukhanov--Sasaki integration through the transient confinement
+explicitly. Second, direct Mukhanov-Sasaki integration through the transient confinement
 spike $\rho_{\rm conf}(a)=\rho_0\,\chi(1-\chi)^8$ on a radiation background, with adiabatic
 vacuum initial conditions and Bogoliubov-coefficient extraction verified by Wronskian
-conservation, yields a clean ultraviolet power law $|\beta_k|^2 \propto k^{-4}$ - a red
-tensor tilt under the standard convention - with the tilt insensitive to the spike duration
+conservation, yields a clean ultraviolet power law $|\beta_k|^2 \propto k^{-4}$ (a red
+tensor tilt under the standard convention) with the tilt insensitive to the spike duration
 $\delta$ while the amplitude varies by four orders of magnitude over $\delta\in[0.4,0.6]$;
 this supersedes an earlier, uncomputed blue-tilt estimate and implies no PTA-band
 gravitational-wave signal from the mechanism as formulated \cite{NANOGrav15yr}. Third,
@@ -62,7 +62,7 @@ Primordial Gravitational Waves}
 % ─────────────────────────────────────────────────────────────────────────────
 
 Classical general relativity (GR) predicts geodesic incompleteness under broad conditions,
-as established by the Penrose--Hawking singularity theorems \cite{Penrose1965,
+as established by the Penrose-Hawking singularity theorems \cite{Penrose1965,
 HawkingPenrose1970}. This motivates the search for frameworks in which the big-bang
 singularity is replaced by a well-defined transition. Existing approaches include loop
 quantum cosmology (LQC) \cite{AshtekarBojowald2006}, conformal cyclic cosmology (CCC)
@@ -78,7 +78,7 @@ We develop a cyclic cosmology in which the singularity is replaced by an
 information-saturation event. The transition from collapse to expansion is implemented as a
 GR-consistent junction across a spacelike hypersurface at a critical density. The underlying
 intuition is holographic: as a collapsing region approaches its saturation radius, its
-information content approaches the Bekenstein--Hawking bound, and the effective confinement
+information content approaches the Bekenstein-Hawking bound, and the effective confinement
 potential undergoes a sign reversal.
 
 Two methodological commitments distinguish the present version of this work from earlier
@@ -88,8 +88,8 @@ tensor spectrum) from those that are \emph{phenomenological ans\"atze} (the conf
 potential, the saturation envelope, the cyclic damping law). Second, every quantitative
 claim in this paper is the output of a single, publicly available numerical pipeline
 (Sec.~\ref{sec:code}); no figure or headline number is asserted independently of that
-pipeline. Where the honest computation contradicts earlier estimates - most notably for
-the tensor spectral tilt - the computed result supersedes the earlier claim, and we say
+pipeline. Where the honest computation contradicts earlier estimates, most notably for
+the tensor spectral tilt, the computed result supersedes the earlier claim, and we say
 so explicitly.
 
 % ─────────────────────────────────────────────────────────────────────────────
@@ -122,7 +122,7 @@ spin chain \cite{CodeRepo},
 \begin{equation}
 H = J\sum_{i=1}^{N-1}\vec{S}_i\cdot\vec{S}_{i+1},\quad J>0,
 \end{equation}
-for chain lengths $N=6$--$16$, using exact diagonalisation and mutual information computed
+for chain lengths $N=6$-$16$, using exact diagonalisation and mutual information computed
 from partial traces of the exact ground state. The full pipeline, including AICc model
 selection, leave-one-out sensitivity, and normalisation robustness checks, is implemented
 in \texttt{code/testing.py}, supplied with this paper \cite{CodeRepo}.
@@ -148,7 +148,7 @@ Numerical diagonalisation of a relational kernel $I_{ij}=1/d_{ij}^{\,\alpha}$ on
 Fig.~\ref{fig:eigenmodes} for the $8\times8$ torus at the hyper-stiff point $\alpha=6$,
 mode~0 ($\lambda=0$) is the flat global ground state, and the first excited tier is a
 \emph{four-fold degenerate} multiplet at $\lambda=0.834$ whose span contains two mutually
-orthogonal long-wavelength gradients - the coordinate charts of an emergent isotropic 2D
+orthogonal long-wavelength gradients, the coordinate charts of an emergent isotropic 2D
 manifold. (An earlier draft described this tier as a degenerate pair; the four-fold
 degeneracy is the correct statement for the torus, reflecting its $\pm k_x,\pm k_y$
 symmetry.) Higher modes define localised geometric harmonics with a UV cutoff set by the
@@ -157,7 +157,7 @@ lattice spacing.
 \begin{figure}[t]
 \includegraphics[width=\linewidth]{eigenmodes.png}
 \caption{Emergent eigenmodes of the relational kernel on the $8\times8$ torus at
-$\alpha=6$. Mode~0 ($\lambda=0.000$) is the invariant global ground state. Modes~1--4 form
+$\alpha=6$. Mode~0 ($\lambda=0.000$) is the invariant global ground state. Modes~1-4 form
 a four-fold degenerate tier at $\lambda=0.834$ whose span provides two orthogonal spatial
 coordinate gradients over an isotropic 2D manifold. Higher modes are localised geometric
 harmonics. All eigenvalues shown are computed outputs of the pipeline of
@@ -204,7 +204,7 @@ lies within $1.1\%$ of it.
 
 \begin{figure}[t]
 \includegraphics[width=\linewidth]{rho0_convergence.png}
-\caption{Continuum convergence of $\rho_0$ at $\alpha=6$ across toroidal lattices $L=4$--$16$.
+\caption{Continuum convergence of $\rho_0$ at $\alpha=6$ across toroidal lattices $L=4$-$16$.
 The fitted size exponent is $p=-0.014$, consistent with a lattice-independent continuum
 value $\rho_0\approx4.68$.}
 \label{fig:rho0}
@@ -240,7 +240,7 @@ MI-Laplacian eigenvalue counting function via
 \lambda_n \propto n^{2/d_{\rm eff}^{\rm Weyl}},
 \end{equation}
 fitting the slope of $\log\lambda_n$ versus $\log n$ over the low-lying spectrum. All
-values in Table~\ref{tab:dims} use the fit window $n=1$--$12$ on the $6\times6$ torus; the
+values in Table~\ref{tab:dims} use the fit window $n=1$-$12$ on the $6\times6$ torus; the
 extracted dimension depends appreciably on this window, which earlier drafts left unstated.
 Appendix~\ref{app:weyl-window} quantifies this dependence at $\alpha=6$: $d_{\rm eff}^{\rm
 Weyl}$ drifts from $5.88$ at $n_{\rm fit}=6$ down to $3.46$ over the full available
@@ -258,7 +258,7 @@ where the second equality follows directly from $w_{\rm eff}=\alpha/3-1$.
 \centering
 \caption{Weyl spectral dimension $d_{\rm eff}^{\rm Weyl}$ versus fluid dimension
 $d_{\rm fluid}=\alpha$ at selected values of the MI decay exponent $\alpha$
-($6\times6$ torus, fit window $n=1$--$12$). All values are outputs of the pipeline of
+($6\times6$ torus, fit window $n=1$-$12$). All values are outputs of the pipeline of
 Sec.~\ref{sec:code}.}
 \label{tab:dims}
 \begin{ruledtabular}
@@ -316,12 +316,12 @@ provided here, and its construction is the principal open problem of the framewo
 % ─────────────────────────────────────────────────────────────────────────────
 
 \subsection{Causal Boundary}
-The collapse--expansion bounce is modelled entirely within classical GR across a spacelike
+The collapse-expansion bounce is modelled entirely within classical GR across a spacelike
 hypersurface $\Sigma$, which behaves as a strict localised causal boundary.
 
-\subsection{Israel--Darmois Junction}
+\subsection{Israel-Darmois Junction}
 Matching the interior collapsing and exterior expanding spacetimes requires satisfying the
-Israel--Darmois junction conditions. The induced metric $h_{ab}$ must be continuous:
+Israel-Darmois junction conditions. The induced metric $h_{ab}$ must be continuous:
 \begin{equation}
 [h_{ab}] = h_{ab}^+ - h_{ab}^- = 0.
 \end{equation}
@@ -443,7 +443,7 @@ perturbation $\zeta$ is
 \begin{equation}
 \zeta = -\Phi - \frac{H}{\dot{\rho}}\,\delta\rho.
 \end{equation}
-Transforming to conformal time, the Mukhanov--Sasaki variable $v=z\zeta$ satisfies
+Transforming to conformal time, the Mukhanov-Sasaki variable $v=z\zeta$ satisfies
 \begin{equation}
 v_k'' + \left(c_s^2 k^2 - \frac{z''}{z}\right)v_k = 0.
 \end{equation}
@@ -490,7 +490,7 @@ finite, the background scaling variable $z\propto a\sqrt{\rho+p}/H$ remains well
 and the pump term $z''/z$ stays finite throughout the transition.
 
 \subsection{Matching Conditions}
-Applying the Israel--Darmois matching conditions across $\Sigma$ guarantees smooth
+Applying the Israel-Darmois matching conditions across $\Sigma$ guarantees smooth
 transmission of fluctuations:
 \begin{equation}
 [\Phi] = 0,\qquad[\zeta] = 0.
@@ -525,7 +525,7 @@ first-pass parameterisation whose replacement is constrained by $w\leq1$.
 
 Because Sec.~\ref{sec:causality} shows that the profile of Eq.~(\ref{eq:profile}) exceeds
 the causal bound under the adiabatic identification, we clarify precisely what is and is not
-established by the tensor computation that follows. The tensor Mukhanov--Sasaki equation
+established by the tensor computation that follows. The tensor Mukhanov-Sasaki equation
 below depends on the background only through the classical scale factor $a(\tau)$ and the
 pump term $a''/a$; it does not reference $c_s^2$ of the confinement component. A background
 trajectory $a(\tau)$ sourced by an effective fluid with $w>1$ is a well-defined classical
@@ -544,7 +544,7 @@ treating the present spectrum as final.
 \subsection{Computed Tensor Spectrum}
 \label{sec:tensor}
 
-We integrate the tensor Mukhanov--Sasaki equation
+We integrate the tensor Mukhanov-Sasaki equation
 \begin{equation}
 v_k'' + \left(k^2 - \frac{a''}{a}\right)v_k = 0
 \end{equation}
@@ -552,7 +552,7 @@ through the transient, with the background $a(\tau)$, $a''/a$, and conformal tim
 by exact quadrature of the Friedmann and continuity equations for
 Eq.~(\ref{eq:profile}) plus radiation. Modes are initialised in the adiabatic vacuum
 $v_k=e^{-ik\tau}/\sqrt{2k}$ deep inside the horizon before the spike, evolved with an
-adaptive Runge--Kutta integrator, and the Bogoliubov coefficient $\beta_k$ is extracted by
+adaptive Runge-Kutta integrator, and the Bogoliubov coefficient $\beta_k$ is extracted by
 projection onto positive- and negative-frequency solutions after the spike. Two internal
 checks validate the extraction: (i) the Bogoliubov normalisation
 $|\alpha_k|^2-|\beta_k|^2=1$ is conserved to the $10^{-5}$ level at default tolerance and
@@ -574,7 +574,7 @@ $1.7\times10^{-16}$ for $\delta=0.4,0.5,0.6$).
 
 These computed results supersede the estimate $n_T\simeq1.875$ reported in an earlier
 draft of this work. That estimate is withdrawn: it is not reproduced by
-direct Mukhanov--Sasaki integration of the profile of Eq.~(\ref{eq:profile}), and the
+direct Mukhanov-Sasaki integration of the profile of Eq.~(\ref{eq:profile}), and the
 finite-duration mechanism previously invoked to justify it (a $\delta$-dependent shift of
 the tilt away from the eternal-$w$ value) is contradicted by the computed
 $\delta$-insensitivity of the tilt. No blue-tilted gravitational-wave background, and in
@@ -582,20 +582,20 @@ particular no signal in the pulsar-timing-array band of the kind reported by NAN
 \cite{NANOGrav15yr}, is predicted by the present framework as formulated.
 
 A companion work, \emph{Tensor Perturbations from a Transient Hyper-Stiff Brane Rupture
-Phase}, independently reports the same qualitative result -- a red tilt, not blue -- for a
+Phase}, independently reports the same qualitative result (a red tilt, not blue) for a
 related but not identical confinement profile ($\rho_{\rm conf}\propto\chi^4(1-\chi)^8$
 there, versus $\chi(1-\chi)^8$ here). An internal sweep in that work over the shape
 exponent $\alpha\in\{4,6,8\}$ (at fixed $\beta=8$) confirms the red tilt is not specific to
 either paper's single chosen exponent. Whether the two results are part of one continuous
 family reaching all the way to $\alpha=1$ (this paper's exponent) remains open: a
-straightforward attempt to extend that sweep down to $\alpha=1$--$2$ did not produce
+straightforward attempt to extend that sweep down to $\alpha=1$-$2$ did not produce
 reliable fits, and we do not claim the agreement between the two papers is more than a
 shared qualitative finding on nearby points in the same profile family.
 
 \begin{figure}[t]
 \includegraphics[width=\linewidth]{tensor_spectrum.png}
 \caption{Computed tensor particle-production spectra $|\beta_k|^2$ for spike durations
-$\delta=0.4$, $0.5$, $0.6$, from Mukhanov--Sasaki integration with adiabatic vacuum initial
+$\delta=0.4$, $0.5$, $0.6$, from Mukhanov-Sasaki integration with adiabatic vacuum initial
 conditions and Wronskian-checked Bogoliubov extraction. The ultraviolet tail is
 $k^{-4}$ (dashed reference) for all durations: the tilt is $\delta$-robust while the
 amplitude varies by four orders of magnitude over $\delta\in[0.4,0.6]$.}
@@ -622,13 +622,13 @@ finiteness plausible but not yet demonstrated.
 
 The framework developed here differs from loop quantum cosmology \cite{AshtekarBojowald2006},
 conformal cyclic cosmology \cite{PenroseBook}, and traditional fuzzball constructions
-\cite{Susskind1995}. Rather than modifying the Einstein--Hilbert action with
+\cite{Susskind1995}. Rather than modifying the Einstein-Hilbert action with
 higher-derivative terms or quantizing individual classical metric elements, it relies on a
 GR-consistent junction driven by a holographic boundary condition.
 
 The revision undertaken in this version separates the framework's derived content from its
 ans\"atze, with the following net result. On the derived side: $\rho_0$ converges to a
-lattice-independent continuum value ($4.68$, spread $<4\%$ over $L=4$--$16$); the Weyl and
+lattice-independent continuum value ($4.68$, spread $<4\%$ over $L=4$-$16$); the Weyl and
 fluid dimensions are distinct, with the fit prescription now stated (Table~\ref{tab:dims});
 the Heisenberg-chain benchmarks support the MI-Laplacian construction most strongly through
 the Luttinger-exponent correspondence ($r\approx0.96$); and the tensor spectrum of the
@@ -660,21 +660,21 @@ $w\leq1$ constraint, followed by recomputation of the spectrum for that profile.
 % ─────────────────────────────────────────────────────────────────────────────
 
 We have presented a cyclic cosmological framework in which holographic information
-saturation triggers a cosmic bounce modelled via Israel--Darmois junction conditions, with
+saturation triggers a cosmic bounce modelled via Israel-Darmois junction conditions, with
 the framework's derived and phenomenological components explicitly separated. The
 established results are: (i) continuum convergence of the MI-Laplacian spectral weight,
-$\rho_0\approx4.68$, across lattice sizes $L=4$--$16$; (ii) a computed tensor spectrum for
-the transient confinement spike - a validated $k^{-4}$ ultraviolet tail corresponding to
+$\rho_0\approx4.68$, across lattice sizes $L=4$-$16$; (ii) a computed tensor spectrum for
+the transient confinement spike (a validated $k^{-4}$ ultraviolet tail corresponding to
 a red tilt, insensitive to the spike duration in slope but spanning four orders of
-magnitude in amplitude over $\delta\in[0.4,0.6]$ - superseding and withdrawing the
+magnitude in amplitude over $\delta\in[0.4,0.6]$), superseding and withdrawing the
 earlier blue-tilt estimate $n_T\simeq1.875$; (iii) a clean distinction between the Weyl
 spectral dimension and the fluid equation-of-state dimension, with the fit window stated;
 (iv) a causality constraint on the confinement sector: the present $\tanh$ envelope yields
 $w\approx2.1>1$ and must be replaced by a profile bounded by $a^{-6}$ decay or by a
 non-adiabatic realisation; and (v) genericity of the cyclic attractor under the exponential
-damping ansatz, whose rate remains a free parameter. The framework's open problems -
-microphysical derivations of the confinement transition, the damping rate, the junction
-condition, and the homogenisation mechanism - are stated as such.
+damping ansatz, whose rate remains a free parameter. The framework's open problems
+(microphysical derivations of the confinement transition, the damping rate, the junction
+condition, and the homogenisation mechanism) are stated as such.
 
 % ─────────────────────────────────────────────────────────────────────────────
 \section{Code and Data Availability}
@@ -689,7 +689,7 @@ normalisation robustness checks, are generated by \texttt{code/testing.py} \cite
 Pinned dependency versions are listed in \texttt{requirements.txt}; both scripts were
 independently rerun end-to-end for this revision (Python 3.13, \texttt{numpy}~2.5.1,
 \texttt{scipy}~1.18.0, \texttt{matplotlib}~3.11.0, \texttt{qutip}~5.3.0) and reproduced every
-quoted number in Secs.~\ref{sec:spectral}--\ref{sec:pheno} and Appendix~\ref{app:numerics} to
+quoted number in Secs.~\ref{sec:spectral}-\ref{sec:pheno} and Appendix~\ref{app:numerics} to
 the stated precision. Readers are encouraged to rerun both scripts.
 
 \begin{acknowledgements}
@@ -707,7 +707,7 @@ made in the main text but were not previously quantified.
 
 \subsection{Solver-tolerance convergence of the tensor spectrum}
 \label{app:tensor-tol}
-The Bogoliubov extraction of Sec.~\ref{sec:tensor} uses an adaptive Runge--Kutta integrator
+The Bogoliubov extraction of Sec.~\ref{sec:tensor} uses an adaptive Runge-Kutta integrator
 at default tolerance ($\mathrm{rtol}=10^{-7}$, $\mathrm{atol}=10^{-10}$). Tightening the
 tolerance by an order of magnitude ($\mathrm{rtol}=10^{-8}$, $\mathrm{atol}=10^{-11}$) at
 representative mode $k=160$, $\delta=0.5$ changes $|\beta_k|^2$ from $1.991066\times10^{-20}$
@@ -742,7 +742,7 @@ The AICc ambiguity between linear and quadratic dispersion (Sec.~\ref{sec:heisen
 quantified as follows. At a single system size ($N=12$, open boundary, TEST~2), linear
 dispersion is mildly preferred ($\mathrm{AICc}_{\rm lin}=-22.17$ versus
 $\mathrm{AICc}_{\rm quad}=-16.62$, $\Delta\mathrm{AICc}=5.55$); pooling across system sizes
-$N=6$--$18$ (TEST~2b) the two models become statistically indistinguishable
+$N=6$-$18$ (TEST~2b) the two models become statistically indistinguishable
 ($\mathrm{AICc}_{\rm lin}=-75.38$ versus $\mathrm{AICc}_{\rm quad}=-74.99$,
 $\Delta\mathrm{AICc}=0.39$), which is the basis for describing the dispersion as
 \emph{consistent with} quadratic rather than established.
